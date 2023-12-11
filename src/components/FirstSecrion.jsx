@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import background from "../../assets/images/first_bg.png";
-import logo from "../../assets/icons/steam.png";
-import Rectangle from "../rectangle/Rectangle";
+import background from "../assets/images/first_bg.png";
+import logo from "../assets/icons/steam.png";
+import Rectangle from "./Rectangle";
 
 const Wrapper = styled.section`
   box-sizing: border-box;
-  padding: 100px 0px 293px 0px;
   height: 100vh;
-  background: url(${background}) no-repeat center;
+  padding: 100px 0px 293px 0px;
+  background: url(${background}) center center/cover no-repeat;
   border: none;
+  background-size: 100% 103%;
 `;
 
 const Container = styled.div`
@@ -31,7 +32,7 @@ const Title = styled.h1`
 const Subtitle = styled.h2`
   margin: 0;
   padding: 0;
-  color: #8e8e8e;
+  color: #a7a7a7;
   font-family: "Inter";
   font-size: 22px;
   font-style: normal;
@@ -45,6 +46,13 @@ const Hr = styled.div`
   width: 420px;
   height: 5px;
   background: #ff6046;
+`;
+
+const ButtonPlaySubtitle = styled(Subtitle)`
+  margin-top: 5px;
+  font-size: 15px;
+  text-align: start;
+  transition: 0.5 all;
 `;
 
 const ButtonPlay = styled(Link)`
@@ -62,7 +70,11 @@ const ButtonPlay = styled(Link)`
   &:hover {
     transform: translateY(-5px);
     border: 2px solid #ff6046;
+    ${ButtonPlaySubtitle} {
+      color: #ff6046;
+    }
   }
+
   text-decoration: none;
 `;
 
@@ -89,13 +101,9 @@ const ButtonPlayTitle = styled.div`
   text-transform: uppercase;
 `;
 
-const ButtonPlaySubtitle = styled(Subtitle)`
-  margin-top: 5px;
-  font-size: 15px;
-  text-align: start;
-`;
 
-const HomePage = () => {
+
+const FirstSection = () => {
   return (
     <>
       <Wrapper>
@@ -115,9 +123,8 @@ const HomePage = () => {
           </ButtonPlay>
         </Container>
       </Wrapper>
-      <Rectangle />
     </>
   );
 };
 
-export default HomePage;
+export default FirstSection;
