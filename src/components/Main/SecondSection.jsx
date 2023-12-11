@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import background from "../assets/images/second_bg.png";
+import background from "../../assets/images/second_bg.png";
 
 const Wrapper = styled.section`
+  min-height: 110vh;
   display: flex;
   justify-content: space-around;
   box-sizing: border-box;
-  height: 100vh;
-  background: url(${background}) center no-repeat;
+  background: url(${background}) center center/cover no-repeat;
   border: none;
+  background-size: 100% 110%;
 `;
 const InfoWrapper = styled.div`
   display: flex;

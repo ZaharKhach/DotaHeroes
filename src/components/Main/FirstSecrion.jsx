@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import background from "../assets/images/first_bg.png";
-import logo from "../assets/icons/steam.png";
-import Rectangle from "./Rectangle";
+import background from "../../assets/images/first_bg.png";
+import logo from "../../assets/icons/steam.png";
 
 const Wrapper = styled.section`
   box-sizing: border-box;
@@ -11,7 +10,7 @@ const Wrapper = styled.section`
   padding: 100px 0px 293px 0px;
   background: url(${background}) center center/cover no-repeat;
   border: none;
-  background-size: 100% 103%;
+  background-size: 100% 100%;
 `;
 
 const Container = styled.div`
@@ -48,7 +47,7 @@ export const Hr = styled.div`
   background: #ff6046;
 `;
 
-const ButtonPlaySubtitle = styled(Subtitle)`
+export const ButtonPlaySubtitle = styled(Subtitle)`
   margin-top: 5px;
   font-size: 15px;
   text-align: start;
@@ -59,6 +58,7 @@ export const ButtonPlay = styled(Link)`
   margin-top: 84px;
   display: flex;
   justify-content: space-around;
+  padding: 0px 20px 0px 20px;
   align-items: center;
   width: 19vw;
   height: 11vh;
@@ -69,27 +69,27 @@ export const ButtonPlay = styled(Link)`
   cursor: pointer;
   &:hover {
     transform: translateY(-5px);
-    border: 2px solid #ff6046;
+    /* border: 2px solid #ff6046;
     ${ButtonPlaySubtitle} {
       color: #ff6046;
-    }
+    } */
   }
 
   text-decoration: none;
 `;
 
-const Steam = styled.img`
+export const Steam = styled.img`
   display: inline;
   width: 50px;
   height: 50px;
 `;
 
-const ButtonPlayLeftSide = styled.div`
+export const ButtonPlayLeftSide = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const ButtonPlayTitle = styled.div`
+export const ButtonPlayTitle = styled.div`
   width: 216px;
   color: #fff;
   text-align: center;
@@ -100,8 +100,6 @@ const ButtonPlayTitle = styled.div`
   line-height: normal;
   text-transform: uppercase;
 `;
-
-
 
 const FirstSection = () => {
   return (

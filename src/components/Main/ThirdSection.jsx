@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import background from "../assets/images/third_bg.png";
+import background from "../../assets/images/third_bg.png";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.section`
   box-sizing: border-box;
   padding-top: 100px;
   padding-bottom: 137px;
-  background: url(${background}) center no-repeat;
+  background: url(${background}) center/cover no-repeat;
 `;
 const Container = styled.div`
   max-width: 975px;
@@ -72,7 +72,7 @@ const Button = styled(Link)`
   cursor: pointer;
   &:hover {
     transform: translateY(-5px);
-    border: 2px solid #ff6046;
+    /* border: 2px solid #ff6046; */
   }
 `;
 
@@ -89,7 +89,7 @@ const ThirdSection = () => {
             abilities and devastating ultimates on your way to victory.
           </Description>
           <Hr />
-          <Button>SEE ALL CHARACTERS</Button>
+          <Button to="/heroes">SEE ALL CHARACTERS</Button>
         </Container>
       </Wrapper>
     </>

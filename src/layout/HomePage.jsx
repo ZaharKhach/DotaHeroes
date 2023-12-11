@@ -1,8 +1,8 @@
 import React from "react";
-import FirstSection from "../components/FirstSecrion";
-import SecondSection from "../components/SecondSection";
-import ThirdSection from "../components/ThirdSection";
-import Rectangle from "../components/Rectangle";
+import FirstSection from "../components/Main/FirstSecrion";
+import SecondSection from "../components/Main/SecondSection";
+import ThirdSection from "../components/Main/ThirdSection";
+import Rectangle from "../components/Main/Rectangle";
 
 const HomePage = () => {
   return (
