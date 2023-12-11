@@ -41,7 +41,7 @@ const Subtitle = styled.h2`
   text-transform: uppercase;
 `;
 
-const Hr = styled.div`
+export const Hr = styled.div`
   margin-top: 84px;
   width: 420px;
   height: 5px;
@@ -55,7 +55,7 @@ const ButtonPlaySubtitle = styled(Subtitle)`
   transition: 0.5 all;
 `;
 
-const ButtonPlay = styled(Link)`
+export const ButtonPlay = styled(Link)`
   margin-top: 84px;
   display: flex;
   justify-content: space-around;
