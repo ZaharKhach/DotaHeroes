@@ -3,19 +3,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import background from "../../assets/images/first_bg.png";
 import logo from "../../assets/icons/steam.png";
+import { GlobalWrapper, Container } from "../globalStyled/GlobalStyled";
 
-const Wrapper = styled.section`
-  box-sizing: border-box;
-  height: 100vh;
+const Wrapper = styled(GlobalWrapper)`
   padding: 100px 0px 293px 0px;
-  background: url(${background}) center center/cover no-repeat;
-  border: none;
-  background-size: 100% 100%;
-`;
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
+  background-image: url(${background});
 `;
 
 const Title = styled.h1`
@@ -49,9 +41,10 @@ export const Hr = styled.div`
 
 export const ButtonPlaySubtitle = styled(Subtitle)`
   margin-top: 5px;
-  font-size: 15px;
+  font-size: 1rem;
   text-align: start;
   transition: 0.5 all;
+  text-align: left;
 `;
 
 export const ButtonPlay = styled(Link)`
@@ -69,10 +62,6 @@ export const ButtonPlay = styled(Link)`
   cursor: pointer;
   &:hover {
     transform: translateY(-5px);
-    /* border: 2px solid #ff6046;
-    ${ButtonPlaySubtitle} {
-      color: #ff6046;
-    } */
   }
 
   text-decoration: none;
@@ -80,8 +69,7 @@ export const ButtonPlay = styled(Link)`
 
 export const Steam = styled.img`
   display: inline;
-  width: 50px;
-  height: 50px;
+  width: 3.5vw;
 `;
 
 export const ButtonPlayLeftSide = styled.div`
@@ -94,11 +82,12 @@ export const ButtonPlayTitle = styled.div`
   color: #fff;
   text-align: center;
   text-shadow: 3px 0px 0.6px #000;
-  font-size: 27px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
+  text-align: left;
 `;
 
 const FirstSection = () => {

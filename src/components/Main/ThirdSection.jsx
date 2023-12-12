@@ -2,16 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import background from "../../assets/images/third_bg.png";
 import { Link } from "react-router-dom";
+import { GlobalWrapper, Container } from "../globalStyled/GlobalStyled";
 
-const Wrapper = styled.section`
-  box-sizing: border-box;
+const Wrapper = styled(GlobalWrapper)`
+  height: 120vh;
   padding-top: 100px;
   padding-bottom: 137px;
-  background: url(${background}) center/cover no-repeat;
-`;
-const Container = styled.div`
-  max-width: 975px;
-  margin: 0 auto;
+  background-image: url(${background});
 `;
 
 const Title = styled.h1`

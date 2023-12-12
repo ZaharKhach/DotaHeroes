@@ -15,9 +15,9 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 281px;
+  min-height: 20vh;
   box-sizing: border-box;
-  padding: 71px 48px 71px 57px;
+  padding: 20px 10px 71px 10px;
 `;
 
 const DotaBlock = styled(Link)`
@@ -31,14 +31,13 @@ const DotaBlock = styled(Link)`
   }
 `;
 const DotaLogo = styled.img`
-  width: 150px;
-  height: 139px;
+  width: 6.5vw;
 `;
 const DotaText = styled.div`
   display: inline;
   color: #fff;
   text-align: center;
-  font-size: 80px;
+  font-size: 50px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

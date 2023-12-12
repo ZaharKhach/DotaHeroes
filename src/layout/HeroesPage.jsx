@@ -5,6 +5,7 @@ import Header from "../components/Heroes/Header";
 import background from "../assets/images/heroes_bg.jpg";
 import { useEffect } from "react";
 import Title from "../components/Heroes/Title";
+import FilterHeroes from "../components/Heroes/FilterHeroes";
 
 const Wrapper = styled.div`
   min-height: 2901px;
@@ -21,6 +22,7 @@ const HeroesPage = () => {
     <Wrapper>
       <Header />
       <Title/>
+      <FilterHeroes/>
     </Wrapper>
   );
 };
