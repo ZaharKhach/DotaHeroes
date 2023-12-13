@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import background from "../../assets/images/first_bg.png";
 import logo from "../../assets/icons/steam.png";
 import { GlobalWrapper, Container } from "../globalStyled/GlobalStyled";

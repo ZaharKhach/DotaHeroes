@@ -11,3 +11,18 @@ export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
 `;
+
+export const Error = styled.div`
+display: block;
+margin: 0 auto;
+width: 50%;
+text-align: center;
+`;
+
+export const Loading = styled.div`
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background: black;
+`;

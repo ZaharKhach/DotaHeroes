@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import background from "../../assets/images/third_bg.png";
 import { Link } from "react-router-dom";
 import { GlobalWrapper, Container } from "../globalStyled/GlobalStyled";

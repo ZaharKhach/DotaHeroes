@@ -1,15 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+
 import Header from "../components/Heroes/Header";
-import background from "../assets/images/heroes_bg.jpg";
-import { useEffect } from "react";
 import Title from "../components/Heroes/Title";
 import FilterHeroes from "../components/Heroes/FilterHeroes";
+import HeroesList from "../components/Heroes/HeroesList";
+import { Error, Loading } from "../components/globalStyled/GlobalStyled";
+import { MoonLoader } from "react-spinners";
+
+import { useEffect } from "react";
+import { useGetDotaHeroesQuery } from "../api/dota";
+
+import background from "../assets/images/heroes_bg.jpg";
 
 const Wrapper = styled.div`
-  min-height: 2901px;
-  background: url(${background})  ;
+  background: url(${background});
+  box-sizing: border-box;
+  padding-bottom: 40px;
 `;
 
 const HeroesPage = () => {
@@ -18,12 +25,41 @@ const HeroesPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const { data, error, isLoading, isFetching } = useGetDotaHeroesQuery();
+  let heroes;
+  if (!isLoading) {
+    heroes = data.map((hero) => {
+      return {
+        id: hero.id,
+        name: hero.localized_name,
+        img: hero.img,
+      };
+    });
+  }
+
   return (
-    <Wrapper>
-      <Header />
-      <Title/>
-      <FilterHeroes/>
-    </Wrapper>
+    <>
+      {error ? (
+        <Error>
+          <h1>{error.data.error}</h1>
+          <hr />
+          <h3>{error.status}</h3>
+        </Error>
+      ) : isLoading ? (
+        <Loading>
+          <MoonLoader color="#ffffff" size={150} />
+        </Loading>
+      ) : (
+        <>
+          <Wrapper>
+            <Header />
+            <Title />
+            <FilterHeroes />
+            <HeroesList heroes={heroes} />
+          </Wrapper>
+        </>
+      )}
+    </>
   );
 };
 

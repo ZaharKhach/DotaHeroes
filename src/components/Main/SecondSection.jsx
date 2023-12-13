@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+
 import background from "../../assets/images/second_bg.png";
 import { GlobalWrapper } from "../globalStyled/GlobalStyled";
+
+import { formatNumberWithDots } from "./fucntions";
 
 const Wrapper = styled(GlobalWrapper)`
   display: flex;
@@ -28,16 +31,17 @@ const InfoCount = styled(InfoTitle)`
   font-size: 64px;
 `;
 
-const SecondSection = () => {
+const SecondSection = ({players, matches}) => {
+  console.log(typeof players.toString())
   return (
     <Wrapper>
       <InfoWrapper>
         <InfoTitle>Players</InfoTitle>
-        <InfoCount>465.154</InfoCount>
+        <InfoCount>{formatNumberWithDots(players)}</InfoCount>
       </InfoWrapper>
       <InfoWrapper>
         <InfoTitle>Matches last day</InfoTitle>
-        <InfoCount>968.676</InfoCount>
+        <InfoCount>{formatNumberWithDots(matches)}</InfoCount>
       </InfoWrapper>
     </Wrapper>
   );
