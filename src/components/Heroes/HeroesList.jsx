@@ -7,7 +7,7 @@ const Wrapper = styled.section`
   margin-top: 15px;
   grid-template-columns: 297px 297px 297px 297px;
   display: grid;
-  grid-column-gap: 15px;
+  grid-column-gap: 8px;
   grid-row-gap: 15px;
 
 `;

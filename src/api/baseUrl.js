@@ -1,1 +1,1 @@
-export const baseUrl = 'https://api.opendota.com/' ;
+export const baseUrl = 'https://api.opendota.com' ;

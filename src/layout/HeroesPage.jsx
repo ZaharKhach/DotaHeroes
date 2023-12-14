@@ -25,7 +25,7 @@ const HeroesPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { data, error, isLoading, isFetching } = useGetDotaHeroesQuery();
+  const { data, error, isLoading } = useGetDotaHeroesQuery();
   let heroes;
   if (!isLoading) {
     heroes = data.map((hero) => {
