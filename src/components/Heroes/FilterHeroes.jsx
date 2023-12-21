@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container } from "../globalStyled/GlobalStyled";
 import { filtersChanged } from "./slices/filterSlice";
 import { selectActiveFilter } from "./slices/filterSlice";
+import { act } from "react-dom/test-utils";
 
 const FilterHeroesBlock = styled.div`
   margin-top: 134px;
@@ -75,6 +76,8 @@ const Search = styled.input`
 const FilterHeroes = ({ filters }) => {
   const dispatch = useDispatch();
   const activeFilter = useSelector(selectActiveFilter);
+  console.log(activeFilter);
+
   return (
     <Container>
       <FilterHeroesBlock>
@@ -82,14 +85,12 @@ const FilterHeroes = ({ filters }) => {
         <AtributeBlock>
           <AtributeTitle>ATTRIBUTE</AtributeTitle>
           {filters.map((filter) => {
-
-            // console.log(filter, 'atribute');
             return (
               <AtributeIcon
                 src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/herogrid/filter-${filter}-active.png`}
                 key={uuid()}
                 className={
-                  activeFilter === filter ? "active" : null
+                  activeFilter === filter  ? "active" : null
                 }
                 onClick={() => dispatch(filtersChanged(filter))}
               />

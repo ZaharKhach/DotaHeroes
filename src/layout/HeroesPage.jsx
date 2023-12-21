@@ -32,7 +32,6 @@ const HeroesPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  console.log(filtersState);
   let heroes;
   if (!isLoading) {
     heroes = data.map((hero) => {

@@ -1,9 +1,9 @@
-import styled  from "styled-components";
+import styled from "styled-components";
 
 import SingleHero from "./SingleHero";
 import { Container } from "../globalStyled/GlobalStyled";
 
-import { selectActiveFilter } from "./slices/filterSlice";
+import { filtersChanged, selectActiveFilter } from "./slices/filterSlice";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
 
@@ -19,20 +19,26 @@ const HeroesList = ({ heroes }) => {
   const activeFilter = useSelector(selectActiveFilter);
 
   const filteredHeroes = useMemo(() => {
-    if(activeFilter == 'none') {
+    if (activeFilter === "none") {
       return heroes;
     } else {
-      return heroes.filter(hero => hero.primary_attr == activeFilter)
+      if (activeFilter !== "uni") {
+        return heroes.filter((hero) => hero.attgibute === activeFilter);
+      } else {
+        return heroes.filter((hero) => hero.attgibute === "all");
+      }
     }
-  })
+  }, [heroes, activeFilter]);
+
+  const renderHeroes = (arr) => {
+    return arr.map((hero) => (
+      <SingleHero key={hero.id} name={hero.name} img={hero.img} />
+    ));
+  };
 
   return (
     <Container>
-      <Wrapper>
-        {heroes.map((hero) => (
-          <SingleHero key={hero.id} name={hero.name} img={hero.img} />
-        ))}
-      </Wrapper>
+      <Wrapper>{renderHeroes(filteredHeroes)}</Wrapper>
     </Container>
   );
 };
