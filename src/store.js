@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dotaApi from "./api/dota";
 import { setupListeners } from "@reduxjs/toolkit/query";
+
+import dotaApi from "./api/dota";
+import filters from './components/Heroes/slices/filterSlice'
 
 const store = configureStore({
     reducer: {
+        filters,
         [dotaApi.reducerPath]: dotaApi.reducer
     },
     middleware: (getDefaultMiddleware) =>

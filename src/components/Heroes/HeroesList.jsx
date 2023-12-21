@@ -1,7 +1,11 @@
-import styled from "styled-components";
+import styled  from "styled-components";
 
 import SingleHero from "./SingleHero";
 import { Container } from "../globalStyled/GlobalStyled";
+
+import { selectActiveFilter } from "./slices/filterSlice";
+import { useSelector } from "react-redux";
+import { useMemo } from "react";
 
 const Wrapper = styled.section`
   margin-top: 15px;
@@ -9,15 +13,24 @@ const Wrapper = styled.section`
   display: grid;
   grid-column-gap: 8px;
   grid-row-gap: 15px;
-
 `;
 
-const HeroesList = ({heroes}) => {
+const HeroesList = ({ heroes }) => {
+  const activeFilter = useSelector(selectActiveFilter);
+
+  const filteredHeroes = useMemo(() => {
+    if(activeFilter == 'none') {
+      return heroes;
+    } else {
+      return heroes.filter(hero => hero.primary_attr == activeFilter)
+    }
+  })
+
   return (
     <Container>
       <Wrapper>
-        {heroes.map(hero => (
-          <SingleHero key={hero.id} name={hero.name} img={hero.img}  />
+        {heroes.map((hero) => (
+          <SingleHero key={hero.id} name={hero.name} img={hero.img} />
         ))}
       </Wrapper>
     </Container>

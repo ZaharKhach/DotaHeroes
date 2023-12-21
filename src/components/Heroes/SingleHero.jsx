@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { baseUrl } from "../../api/baseUrl";
 
-const SingleHero = ({ name, img }) => {
   const Name = styled.span`
     position: absolute;
     bottom: 0;
@@ -21,7 +20,7 @@ const SingleHero = ({ name, img }) => {
 
   const Icon = styled.div`
     position: relative;
-    background: url(${baseUrl + img}) center center/cover no-repeat;
+    background: url(${props => props.image}) center center/cover no-repeat;
     width: 100%;
     height: 100%;
     transition: 0.5s all;
@@ -47,10 +46,11 @@ const SingleHero = ({ name, img }) => {
       }
     }
   `;
+const SingleHero = ({ name, img }) => {
 
   return (
     <Wrapper>
-      <Icon />
+      <Icon image={baseUrl + img} />
       <Name>{name}</Name>
     </Wrapper>
   );

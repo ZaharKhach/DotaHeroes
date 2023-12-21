@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import atributeIcon from "../../assets/icons/streight.png";
+import { v4 as uuid } from "uuid";
+import { useDispatch, useSelector } from "react-redux";
+
 import { Container } from "../globalStyled/GlobalStyled";
+import { filtersChanged } from "./slices/filterSlice";
+import { selectActiveFilter } from "./slices/filterSlice";
 
 const FilterHeroesBlock = styled.div`
   margin-top: 134px;
@@ -47,6 +51,11 @@ const AtributeIcon = styled.img`
   display: inline;
   max-width: 50px;
   cursor: pointer;
+  filter: brightness(0.5) saturate(0);
+  transition: all 0.5s;
+  &.active {
+    filter: none;
+  }
 `;
 
 const Search = styled.input`
@@ -63,17 +72,29 @@ const Search = styled.input`
   }
 `;
 
-const FilterHeroes = () => {
+const FilterHeroes = ({ filters }) => {
+  const dispatch = useDispatch();
+  const activeFilter = useSelector(selectActiveFilter);
   return (
     <Container>
       <FilterHeroesBlock>
         <FilterHeroesTitle>FILTER HEROES</FilterHeroesTitle>
         <AtributeBlock>
           <AtributeTitle>ATTRIBUTE</AtributeTitle>
-          <AtributeIcon src={atributeIcon} />
-          <AtributeIcon src={atributeIcon} />
-          <AtributeIcon src={atributeIcon} />
-          <AtributeIcon src={atributeIcon} />
+          {filters.map((filter) => {
+
+            // console.log(filter, 'atribute');
+            return (
+              <AtributeIcon
+                src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/herogrid/filter-${filter}-active.png`}
+                key={uuid()}
+                className={
+                  activeFilter === filter ? "active" : null
+                }
+                onClick={() => dispatch(filtersChanged(filter))}
+              />
+            );
+          })}
         </AtributeBlock>
         <Search placeholder="Seach..." />
       </FilterHeroesBlock>

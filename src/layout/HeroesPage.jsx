@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Header from "../components/Heroes/Header";
@@ -10,8 +10,12 @@ import { MoonLoader } from "react-spinners";
 
 import { useEffect } from "react";
 import { useGetDotaHeroesQuery } from "../api/dota";
-
+import { useDispatch } from "react-redux";
 import background from "../assets/images/heroes_bg.jpg";
+import { useSelector } from "react-redux";
+import { fetchFilters } from "../components/Heroes/slices/filterSlice";
+
+import { selectFilters } from "../components/Heroes/slices/filterSlice";
 
 const Wrapper = styled.div`
   background: url(${background});
@@ -20,12 +24,15 @@ const Wrapper = styled.div`
 `;
 
 const HeroesPage = () => {
+  const { data, error, isLoading, isFetching } = useGetDotaHeroesQuery();
+  const filtersState = useSelector(selectFilters);
+
   useEffect(() => {
     // Прокрутка страницы вверх при монтировании компонента
     window.scrollTo(0, 0);
   }, []);
 
-  const { data, error, isLoading } = useGetDotaHeroesQuery();
+  console.log(filtersState);
   let heroes;
   if (!isLoading) {
     heroes = data.map((hero) => {
@@ -33,6 +40,7 @@ const HeroesPage = () => {
         id: hero.id,
         name: hero.localized_name,
         img: hero.img,
+        attgibute: hero.primary_attr
       };
     });
   }
@@ -45,7 +53,7 @@ const HeroesPage = () => {
           <hr />
           <h3>{error.status}</h3>
         </Error>
-      ) : isLoading ? (
+      ) : isLoading || isFetching ? (
         <Loading>
           <MoonLoader color="#ffffff" size={150} />
         </Loading>
@@ -54,7 +62,7 @@ const HeroesPage = () => {
           <Wrapper>
             <Header />
             <Title />
-            <FilterHeroes />
+            <FilterHeroes filters={filtersState} />
             <HeroesList heroes={heroes} />
           </Wrapper>
         </>
