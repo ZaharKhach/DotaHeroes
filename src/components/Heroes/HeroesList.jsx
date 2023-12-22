@@ -9,6 +9,8 @@ import { useMemo } from "react";
 
 import { selectSearchString } from "./slices/searchSlice";
 
+import { searchSymbol } from "../Main/fucntions";
+
 const Wrapper = styled.section`
   margin-top: 15px;
   grid-template-columns: 297px 297px 297px 297px;
@@ -21,21 +23,26 @@ const HeroesList = ({ heroes }) => {
   const activeFilter = useSelector(selectActiveFilter);
   const searchString = useSelector(selectSearchString);
 
-  console.log(searchString)
+  console.log(searchString);
 
   const filteredHeroes = useMemo(() => {
-    let filteredHeroes = heroes;
+    console.log(heroes);
+    let filtereHeroes = heroes;
     if (activeFilter === "none") {
-      return filteredHeroes;
+      return searchSymbol(searchString, filtereHeroes);
     } else {
       if (activeFilter !== "uni") {
-        filteredHeroes = filteredHeroes.filter((hero) => hero.attgibute === activeFilter);
+        filtereHeroes = filtereHeroes.filter(
+          (hero) => hero.attgibute === activeFilter
+        );
       } else {
-        filteredHeroes = filteredHeroes.filter((hero) => hero.attgibute === "all");
+        filtereHeroes = filtereHeroes.filter(
+          (hero) => hero.attgibute === "all"
+        );
       }
-      return filteredHeroes;
+      return searchSymbol(searchString, filtereHeroes);
     }
-  }, [heroes, activeFilter]);
+  }, [heroes, activeFilter, searchString]);
 
   const renderHeroes = (arr) => {
     return arr.map((hero) => (

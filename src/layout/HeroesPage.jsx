@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   background: url(${background});
   box-sizing: border-box;
   padding-bottom: 40px;
+  min-height: 200vh;
 `;
 
 const HeroesPage = () => {
