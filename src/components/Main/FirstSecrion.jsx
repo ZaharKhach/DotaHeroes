@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import background from "../../assets/images/first_bg.png";
 import logo from "../../assets/icons/steam.png";
@@ -96,19 +97,45 @@ const FirstSection = () => {
     <>
       <Wrapper>
         <Container>
-          <Title>Welcome to the Dota heroes portal</Title>
-          <Subtitle>-ZAHARKHACH</Subtitle>
-          <Hr />
-          <ButtonPlay
-            to="https://store.steampowered.com/app/570/Dota_2/"
-            target="_blank"
+          <Title
+            as={motion.h1}
+            initial={{ y: "100%", opacity: "0%" }}
+            animate={{ y: "0%", opacity: "100%" }}
+            transition={{ duration: 1 }}
           >
-            <Steam alt="steam" src={logo} />
-            <ButtonPlayLeftSide>
-              <ButtonPlayTitle>play for free</ButtonPlayTitle>
-              <ButtonPlaySubtitle>download on steam</ButtonPlaySubtitle>
-            </ButtonPlayLeftSide>
-          </ButtonPlay>
+            Welcome to the Dota heroes portal
+          </Title>
+          <Subtitle
+            as={motion.h2}
+            initial={{ y: "200px", opacity: "0%" }}
+            animate={{ y: "0%", opacity: "100%" }}
+            transition={{ duration: 1 }}
+          >
+            -ZAHARKHACH
+          </Subtitle>
+          <Hr
+            as={motion.div}
+            initial={{ opacity: "0%" }}
+            animate={{ opacity: "100%" }}
+            transition={{ duration: 3 }}
+          />
+
+          <motion.div
+            initial={{ y: "200px", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <ButtonPlay
+              to="https://store.steampowered.com/app/570/Dota_2/"
+              target="_blank"
+            >
+              <Steam alt="steam" src={logo} />
+              <ButtonPlayLeftSide>
+                <ButtonPlayTitle>play for free</ButtonPlayTitle>
+                <ButtonPlaySubtitle>download on steam</ButtonPlaySubtitle>
+              </ButtonPlayLeftSide>
+            </ButtonPlay>
+          </motion.div>
         </Container>
       </Wrapper>
     </>
