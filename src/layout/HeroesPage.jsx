@@ -10,10 +10,8 @@ import { MoonLoader } from "react-spinners";
 
 import { useEffect } from "react";
 import { useGetDotaHeroesQuery } from "../api/dota";
-import { useDispatch } from "react-redux";
 import background from "../assets/images/heroes_bg.jpg";
 import { useSelector } from "react-redux";
-import { fetchFilters } from "../components/Heroes/slices/filterSlice";
 
 import { selectFilters } from "../components/Heroes/slices/filterSlice";
 

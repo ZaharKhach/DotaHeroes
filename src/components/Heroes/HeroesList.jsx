@@ -3,9 +3,11 @@ import styled from "styled-components";
 import SingleHero from "./SingleHero";
 import { Container } from "../globalStyled/GlobalStyled";
 
-import { filtersChanged, selectActiveFilter } from "./slices/filterSlice";
+import { selectActiveFilter } from "./slices/filterSlice";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
+
+import { selectSearchString } from "./slices/searchSlice";
 
 const Wrapper = styled.section`
   margin-top: 15px;
@@ -17,16 +19,21 @@ const Wrapper = styled.section`
 
 const HeroesList = ({ heroes }) => {
   const activeFilter = useSelector(selectActiveFilter);
+  const searchString = useSelector(selectSearchString);
+
+  console.log(searchString)
 
   const filteredHeroes = useMemo(() => {
+    let filteredHeroes = heroes;
     if (activeFilter === "none") {
-      return heroes;
+      return filteredHeroes;
     } else {
       if (activeFilter !== "uni") {
-        return heroes.filter((hero) => hero.attgibute === activeFilter);
+        filteredHeroes = filteredHeroes.filter((hero) => hero.attgibute === activeFilter);
       } else {
-        return heroes.filter((hero) => hero.attgibute === "all");
+        filteredHeroes = filteredHeroes.filter((hero) => hero.attgibute === "all");
       }
+      return filteredHeroes;
     }
   }, [heroes, activeFilter]);
 

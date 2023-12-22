@@ -12,8 +12,9 @@ import { baseUrl } from "../../api/baseUrl";
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
-    transform: translate(-13%, 100%);
-    transition: 0.7s all;
+    transition: 0.4s all;
+    transform: translate(20%, 30%);
+
     opacity: 0;
     visibility: hidden;
   `;

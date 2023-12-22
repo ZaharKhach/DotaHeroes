@@ -4,9 +4,11 @@ import { v4 as uuid } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Container } from "../globalStyled/GlobalStyled";
+
 import { filtersChanged } from "./slices/filterSlice";
+import { searchStringChanged } from "./slices/searchSlice";
+
 import { selectActiveFilter } from "./slices/filterSlice";
-import { act } from "react-dom/test-utils";
 
 const FilterHeroesBlock = styled.div`
   margin-top: 134px;
@@ -76,7 +78,6 @@ const Search = styled.input`
 const FilterHeroes = ({ filters }) => {
   const dispatch = useDispatch();
   const activeFilter = useSelector(selectActiveFilter);
-  console.log(activeFilter);
 
   return (
     <Container>
@@ -89,15 +90,16 @@ const FilterHeroes = ({ filters }) => {
               <AtributeIcon
                 src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/herogrid/filter-${filter}-active.png`}
                 key={uuid()}
-                className={
-                  activeFilter === filter  ? "active" : null
-                }
+                className={activeFilter === filter ? "active" : null}
                 onClick={() => dispatch(filtersChanged(filter))}
               />
             );
           })}
         </AtributeBlock>
-        <Search placeholder="Seach..." />
+        <Search
+          placeholder="Search..."
+          onChange={(e) => dispatch(searchStringChanged(e.target.value))}
+        />
       </FilterHeroesBlock>
     </Container>
   );

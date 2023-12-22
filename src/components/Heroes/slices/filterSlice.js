@@ -13,7 +13,6 @@ const filtersSlice = createSlice({
     initialState,
     reducers: {
         filtersChanged: (state, action) => {
-            console.log(action.payload, 'payload')
             if (action.payload === state.activeFilter) {
                 state.activeFilter = 'none';
                 return

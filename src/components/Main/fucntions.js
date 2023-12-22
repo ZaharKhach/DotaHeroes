@@ -13,9 +13,8 @@ export function formatNumberWithDots(number) {
   
     return formattedNumber;
   }
+
+export function searchSunbol(string, heroes) {
   
-  // Пример использования
-  const originalNumber = 1234567;
-  const formattedNumber = formatNumberWithDots(originalNumber);
-  console.log(formattedNumber); // Вывод: "1.234.567"
+}
   
