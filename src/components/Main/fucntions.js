@@ -11,7 +11,7 @@ export function formatNumberWithDots(number) {
   // Соединить группы точками
   const formattedNumber = groups.join('.');
 
-  return formattedNumber;
+  return +formattedNumber;
 }
 export function searchSymbol(symbol, heroes) {
   const searchTerm = symbol.toLowerCase();
