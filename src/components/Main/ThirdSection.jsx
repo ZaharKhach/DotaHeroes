@@ -1,5 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
+import { motion, useScroll, useAnimation } from "framer-motion";
 
 import background from "../../assets/images/third_bg.png";
 import { Link } from "react-router-dom";
@@ -75,12 +77,41 @@ const Button = styled(Link)`
 `;
 
 const ThirdSection = () => {
+  const controls = useAnimation();
+  const { scrollYProgress } = useScroll();
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      const scrollThreshold = 0.7; // Измените это значение по вашему усмотрению
+      const shouldAnimate = scrollYProgress.current > scrollThreshold;
+      if (shouldAnimate) {
+        controls.start({ opacity: 1, y: 0, transition: { duration: 1.5 } });
+      } else {
+        controls.start({ opacity: 0, y: 100, transition: { duration: 1 } });
+      }
+    };
+
+    scrollHandler(); // Вызываем сразу для начальной установки
+
+    // Подписываемся на события скролла
+    const unsubscribeScroll = scrollYProgress.on("change", scrollHandler);
+    // Очистка подписки при размонтировании компонента
+    return () => {
+      unsubscribeScroll();
+    };
+  }, [controls, scrollYProgress]);
   return (
     <>
       <Wrapper>
         <Container>
-          <Title>who will you</Title>
-          <CloseTitle>chose?</CloseTitle>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={controls}
+            transition={{ duration: 0.5 }}
+          >
+            <Title>who will you</Title>
+            <CloseTitle>chose?</CloseTitle>
+          </motion.div>
           <Description>
             From magical tacticians to fierce brutes and cunning rogues, Dota
             2's hero pool is massive and limitlessly diverse. Unleash incredible

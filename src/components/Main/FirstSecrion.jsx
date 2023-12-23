@@ -97,22 +97,14 @@ const FirstSection = () => {
     <>
       <Wrapper>
         <Container>
-          <Title
-            as={motion.h1}
-            initial={{ y: "100%", opacity: "0%" }}
-            animate={{ y: "0%", opacity: "100%" }}
-            transition={{ duration: 1 }}
+          <motion.div
+            initial={{ x: "-5%", opacity: "0%" }}
+            animate={{ x: "0%", opacity: "100%" }}
+            transition={{ duration: 1.5 }}
           >
-            Welcome to the Dota heroes portal
-          </Title>
-          <Subtitle
-            as={motion.h2}
-            initial={{ y: "200px", opacity: "0%" }}
-            animate={{ y: "0%", opacity: "100%" }}
-            transition={{ duration: 1 }}
-          >
-            -ZAHARKHACH
-          </Subtitle>
+            <Title>Welcome to the Dota heroes portal</Title>
+            <Subtitle>-ZAHARKHACH</Subtitle>
+          </motion.div>
           <Hr
             as={motion.div}
             initial={{ opacity: "0%" }}
@@ -121,9 +113,9 @@ const FirstSection = () => {
           />
 
           <motion.div
-            initial={{ y: "200px", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            transition={{ duration: 1 }}
+            initial={{ x: "-5%", opacity: "0%" }}
+            animate={{ x: "0%", opacity: "100%" }}
+            transition={{ duration: 1.5 }}
           >
             <ButtonPlay
               to="https://store.steampowered.com/app/570/Dota_2/"
