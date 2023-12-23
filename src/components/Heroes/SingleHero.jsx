@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+
 import { baseUrl } from "../../api/baseUrl";
 
   const Name = styled.span`
@@ -24,7 +26,7 @@ import { baseUrl } from "../../api/baseUrl";
     background: url(${props => props.image}) center center/cover no-repeat;
     width: 100%;
     height: 100%;
-    transition: 0.5s all;
+    transition: 0.3s all;
     cursor: pointer;
   `;
 

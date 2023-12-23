@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+
 import { Container } from "../globalStyled/GlobalStyled";
 
 const Title = () => {
@@ -24,12 +26,18 @@ const Title = () => {
 
   return (
     <Container>
-      <Titleh1>CHOOSE YOUR HERO</Titleh1>
-      <TitleDescr>
-        From magical tacticians to fierce brutes and cunning rogues, Dota 2's
-        hero pool is massive and limitlessly diverse. Unleash incredible
-        abilities and devastating ultimates on your way to victory.
-      </TitleDescr>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: "100%" }}
+        transition={{ duration: 2 }}
+      >
+        <Titleh1>CHOOSE YOUR HERO</Titleh1>
+        <TitleDescr>
+          From magical tacticians to fierce brutes and cunning rogues, Dota 2's
+          hero pool is massive and limitlessly diverse. Unleash incredible
+          abilities and devastating ultimates on your way to victory.
+        </TitleDescr>
+      </motion.div>
     </Container>
   );
 };
