@@ -25,7 +25,6 @@ const HeroesList = ({ heroes }) => {
   const searchString = useSelector(selectSearchString);
 
   const filteredHeroes = useMemo(() => {
-    console.log(heroes);
     let filtereHeroes = heroes;
     if (activeFilter === "none") {
       return searchSymbol(searchString, filtereHeroes);
@@ -50,10 +49,15 @@ const HeroesList = ({ heroes }) => {
         layout
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0, opacity:0 }}
+        exit={{ scale: 0, opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <SingleHero key={hero.id} name={hero.name} img={hero.img} />
+        <SingleHero
+          key={hero.id}
+          id={hero.id}
+          name={hero.name}
+          img={hero.img}
+        />
       </motion.div>
     ));
   };
