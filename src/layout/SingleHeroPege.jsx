@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import background from "../assets/images/single_hero_bg.jpg";
 import { GlobalWrapper } from "../components/globalStyled/GlobalStyled";
 
-import Abilities from "../components/SingleHero/Abilities/Abilities";
+import HeroStats from "../components/SingleHero/Abilities/Main";
 
 const Wrapper = styled(GlobalWrapper)`
   background: center center/cover no-repeat;
@@ -55,7 +55,7 @@ const SingleHeroPege = () => {
       <Back to={`/heroes/`}>SEE ALL HEROES</Back>
       <Container>
         <ComponentsWrapper>
-          <Abilities/>
+          <HeroStats/>
         </ComponentsWrapper>
       </Container>
     </Wrapper>
