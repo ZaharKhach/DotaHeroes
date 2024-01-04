@@ -7,6 +7,7 @@ import background from "../assets/images/single_hero_bg.jpg";
 import { GlobalWrapper } from "../components/globalStyled/GlobalStyled";
 
 import HeroStats from "../components/SingleHero/Abilities/Main";
+import Hero from "../components/SingleHero/Hero/Hero";
 
 const Wrapper = styled(GlobalWrapper)`
   background: center center/cover no-repeat;
@@ -56,6 +57,7 @@ const SingleHeroPege = () => {
       <Container>
         <ComponentsWrapper>
           <HeroStats/>
+          <Hero/>
         </ComponentsWrapper>
       </Container>
     </Wrapper>
