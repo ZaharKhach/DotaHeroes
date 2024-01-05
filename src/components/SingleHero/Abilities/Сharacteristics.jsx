@@ -91,7 +91,7 @@ const Characteristics = () => {
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//heroes/stats/icon_vision.png" />
           </ImgWrapper>
-          <Text>1900</Text>
+          <Text>1900/2000</Text>
         </RowBase>
       </MobilityBlock>
     </AttributesBox>

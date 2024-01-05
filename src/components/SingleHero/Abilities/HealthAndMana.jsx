@@ -42,7 +42,7 @@ const HealthNumber = styled.div`
   transform: translate(-50%, -50%);
   color: #fff;
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

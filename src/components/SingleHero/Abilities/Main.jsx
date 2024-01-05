@@ -6,7 +6,6 @@ import Сharacteristics from "./Сharacteristics";
 import Stats from "./Stats";
 
 const Wrapper = styled.div`
-  width: 27%;
 `;
 
 

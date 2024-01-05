@@ -53,7 +53,7 @@ const Wrapper = styled.div`
 const SingleHero = ({id, name, img }) => {
   return (
     <Wrapper>
-      <Link to={`/heroes/${name}`}>
+      <Link to={`/heroes/${id}`}>
         <Icon image={baseUrl + img} />
         <Name>{name}</Name>
       </Link>

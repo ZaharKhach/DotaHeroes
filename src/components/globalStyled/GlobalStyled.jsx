@@ -52,7 +52,7 @@ export const TitleBase = styled.div`
 `;
 
 export const RowBase = styled.div`
-  width: 80%;
+  width: 68%;
   display: flex;
   justify-content: space-between;
   align-items: center;

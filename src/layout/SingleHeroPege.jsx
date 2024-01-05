@@ -8,6 +8,7 @@ import { GlobalWrapper } from "../components/globalStyled/GlobalStyled";
 
 import HeroStats from "../components/SingleHero/Abilities/Main";
 import Hero from "../components/SingleHero/Hero/Hero";
+import HeroLore from "../components/SingleHero/HeroLore/HeroLore";
 
 const Wrapper = styled(GlobalWrapper)`
   background: center center/cover no-repeat;
@@ -31,20 +32,11 @@ const Container = styled.div`
 `;
 const ComponentsWrapper = styled.div`
   margin-top: 50px;
-  display: flex;
-  justify-content: space-between;
+  grid-template-columns: 20% 49% 28% ;
+  display: grid;
+  grid-gap: 15px;
 `;
 
-const Test2 = styled.div`
-  width: 33.33%;
-  min-height: 300px;
-  background: red;
-`;
-const Test3 = styled.div`
-  width: 41.67%;
-  min-height: 300px;
-  background: #00ffe1;
-`;
 const SingleHeroPege = () => {
   useEffect(() => {
     // Прокрутка страницы вверх при монтировании компонента
@@ -56,8 +48,9 @@ const SingleHeroPege = () => {
       <Back to={`/heroes/`}>SEE ALL HEROES</Back>
       <Container>
         <ComponentsWrapper>
-          <HeroStats/>
+          <HeroLore/>
           <Hero/>
+          <HeroStats/>
         </ComponentsWrapper>
       </Container>
     </Wrapper>
