@@ -12,25 +12,13 @@ const Video = styled.video`
   z-index: 1;
 `;
 
-const Platform = styled.div`
-  position: absolute;
-  bottom: -5%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: black;
-  width: 580px;
-  height: 117px;
-  border-radius: 100%;
-  background: #3a3a3a;
-  filter: blur(2px);
-  box-shadow: 0px 10px white;
-`;
-
-const Hero = () => {
+const Hero = ({name}) => {
+  const poster = `https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/${name}.png`;
+  const videoSource = `https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/${name}.webm`
   return (
     <VideoContainer>
       <Video
-        poster="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/antimage.png"
+        poster={poster}
         autoPlay
         muted
         preload="auto"
@@ -38,11 +26,9 @@ const Hero = () => {
       >
         <source
           type="video/webm"
-          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/antimage.webm"
+          src={videoSource}
         />
-        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/antimage.png" />
       </Video>
-      <Platform />
     </VideoContainer>
   );
 };

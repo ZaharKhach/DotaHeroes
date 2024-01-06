@@ -20,3 +20,11 @@ export function searchSymbol(symbol, heroes) {
   console.log(heroes)
   return heroes.filter(hero => hero.name.toLowerCase().startsWith(searchTerm));
 }
+export function filterData(data, id) {
+  let dataArr = [];
+  for (let key in data) {
+    dataArr.push(data[key]);
+  }
+
+  return dataArr.filter((item) => item.id === +id);
+}

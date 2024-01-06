@@ -16,6 +16,7 @@ const dotaApi = createApi({
 
 export const {
     useGetDotaStatsQuery,
-    useGetDotaHeroesQuery } = dotaApi
+    useGetDotaHeroesQuery,
+     } = dotaApi
 
 export default dotaApi;
