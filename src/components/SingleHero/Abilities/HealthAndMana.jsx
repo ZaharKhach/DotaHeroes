@@ -51,18 +51,19 @@ const HealthRegen = styled(HealthNumber)`
   font-family: "Hypatia", sans-serif;
 `;
 
-const HealthAndMana = () => {
+const HealthAndMana = ({ data }) => {
+  const { health, healthRegen, mana, manaRegen } = data;
   return (
     <>
       <HealthText>health</HealthText>
       <Health>
-        <HealthNumber>120</HealthNumber>
-        <HealthRegen>+2.6</HealthRegen>
+        <HealthNumber>{health}</HealthNumber>
+        <HealthRegen>+{healthRegen}</HealthRegen>
       </Health>
       <ManaText>mana</ManaText>
       <Mana>
-        <HealthNumber>219</HealthNumber>
-        <HealthRegen>+0.6</HealthRegen>
+        <HealthNumber>{mana}</HealthNumber>
+        <HealthRegen>+{manaRegen}</HealthRegen>
       </Mana>
     </>
   );

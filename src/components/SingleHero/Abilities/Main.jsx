@@ -6,18 +6,63 @@ import Сharacteristics from "./Сharacteristics";
 import Stats from "./Stats";
 
 const Wrapper = styled.div`
-margin-top: 80px;
+  margin-top: 80px;
 `;
 
+const Abilities = ({ heroStats }) => {
+  const {
+    health,
+    healthRegen,
+    mana,
+    manaRegen,
+    attackMin,
+    attackMax,
+    attackRate,
+    atackRange,
+    armor,
+    moveSpeed,
+    dayVision,
+    nightVision,
+    str,
+    int,
+    agi,
+    strGain,
+    agiGain,
+    intGain,
+  } = heroStats;
 
+  const healthAndMana = {
+    health,
+    healthRegen,
+    mana,
+    manaRegen,
+  };
 
-const Abilities = () => {
+  const characteristics = {
+    attackMin,
+    attackMax,
+    attackRate,
+    atackRange,
+    armor,
+    moveSpeed,
+    dayVision,
+    nightVision,
+  };
+
+  const stats = {
+    str,
+    int,
+    agi,
+    strGain,
+    agiGain,
+    intGain,
+  };
   return (
     <Wrapper>
       <Abilites />
-      <HealthAndMana />
-      <Сharacteristics />
-      <Stats/>
+      <HealthAndMana data={healthAndMana} />
+      <Сharacteristics data={characteristics} />
+      <Stats  data={stats}/>
     </Wrapper>
   );
 };

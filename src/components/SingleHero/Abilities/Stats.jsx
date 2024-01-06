@@ -29,7 +29,16 @@ const LittleText = styled(Text)`
   color: #cecece;
 `;
 
-const Stats = () => {
+const Stats = ({data}) => {
+  const {
+    str,
+    int,
+    agi,
+    strGain,
+    agiGain,
+    intGain
+  } = data;
+  
   return (
     <AttributesBox>
       <BlockBase>
@@ -39,7 +48,7 @@ const Stats = () => {
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png" />
           </ImgWrapper>
           <Text>
-            19 <LittleText>+1.6</LittleText>
+            {str} <LittleText>+{strGain}</LittleText>
           </Text>
         </StatsRow>
       </BlockBase>
@@ -50,7 +59,7 @@ const Stats = () => {
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" />
           </ImgWrapper>
           <Text>
-            24 <LittleText>+2.8</LittleText>
+            {agi} <LittleText>+{agiGain}</LittleText>
           </Text>
         </StatsRow>
       </BlockBase>
@@ -61,7 +70,7 @@ const Stats = () => {
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png" />
           </ImgWrapper>
           <Text>
-            12 <LittleText>+1.8</LittleText>
+            {int} <LittleText>+{intGain}</LittleText>
           </Text>
         </StatsRow>
       </BlockBase>

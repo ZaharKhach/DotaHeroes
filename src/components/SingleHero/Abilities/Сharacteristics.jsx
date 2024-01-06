@@ -46,7 +46,19 @@ const Text = styled.div`
   line-height: normal;
 `;
 
-const Characteristics = () => {
+const Characteristics = ({data}) => {
+
+  const {
+    attackMin,
+    attackMax,
+    attackRate,
+    atackRange,
+    armor,
+    moveSpeed,
+    dayVision,
+    nightVision
+  } = data;
+  
   return (
     <AttributesBox>
       <AttackBlock>
@@ -55,19 +67,19 @@ const Characteristics = () => {
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//heroes/stats/icon_damage.png" />
           </ImgWrapper>
-          <Text>48-45</Text>
+          <Text>{attackMin}-{attackMax}</Text>
         </RowBase>
         <RowBase>
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//heroes/stats/icon_attack_time.png" />
           </ImgWrapper>
-          <Text>1.4</Text>
+          <Text>{attackRate}</Text>
         </RowBase>
         <RowBase>
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//heroes/stats/icon_attack_range.png" />
           </ImgWrapper>
-          <Text>150</Text>
+          <Text>{atackRange}</Text>
         </RowBase>
       </AttackBlock>
 
@@ -77,7 +89,7 @@ const Characteristics = () => {
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//heroes/stats/icon_armor.png" />
           </ImgWrapper>
-          <Text>1.0</Text>
+          <Text>{armor}.0</Text>
         </DefenceRow>
       </DefenceBlock>
 
@@ -87,14 +99,14 @@ const Characteristics = () => {
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//heroes/stats/icon_movement_speed.png" />
           </ImgWrapper>
-          <Text>310</Text>
+        <Text>{moveSpeed}</Text>
         </RowBase>
 
         <RowBase>
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//heroes/stats/icon_vision.png" />
           </ImgWrapper>
-          <Text>1900/2000</Text>
+          <Text>{dayVision}/{nightVision}</Text>
         </RowBase>
       </MobilityBlock>
     </AttributesBox>

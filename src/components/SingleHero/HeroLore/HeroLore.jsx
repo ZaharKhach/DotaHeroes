@@ -43,7 +43,7 @@ const RolesBox = styled.div`
   display: grid;
   grid-column-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  z-index:2;
+  z-index: 2;
 `;
 const Role = styled.div`
   color: #cecece;
@@ -112,8 +112,8 @@ const HeroLore = ({ heroLore }) => {
       </TitleBox>
       <Hr2 />
       <RolesBox>
-        {roles.map((item) => {
-          return <Role>{item}</Role>;
+        {roles.map((item, index) => {
+          return <Role key={index}>{item}</Role>;
         })}
       </RolesBox>
       <WinrateBox>

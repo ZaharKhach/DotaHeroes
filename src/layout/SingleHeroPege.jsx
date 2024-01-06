@@ -67,7 +67,29 @@ const SingleHeroPege = () => {
       name: heroName.replace("npc_dota_hero_", ""),
     };
   });
-  console.log(heroObj[0].name);
+
+  const heroStatsObj = hero.map(hero => {
+    return {
+      health: hero.base_health,
+      healthRegen: hero.base_health_regen,
+      mana: hero.base_mana,
+      manaRegen: hero.base_mana_regen,
+      attackMin: hero.base_attack_min,
+      attackMax: hero.base_attack_max,
+      attackRate: hero.attack_rate,
+      atackRange: hero.attack_range,
+      armor: hero.base_armor,
+      moveSpeed: hero.move_speed,
+      dayVision: hero.day_vision,
+      nightVision: hero.night_vision,
+      str: hero.base_str,
+      int: hero.base_int,
+      agi: hero.base_agi,
+      strGain: hero.str_gain,
+      agiGain: hero.agi_gain,
+      intGain: hero.int_gain
+    }
+  })
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -80,7 +102,7 @@ const SingleHeroPege = () => {
         <ComponentsWrapper>
           <HeroLore heroLore={heroLoreObj[0]} />
           <Hero name={heroObj[0].name} />
-          <HeroStats />
+          <HeroStats heroStats={heroStatsObj[0]} />
         </ComponentsWrapper>
       </Container>
     </Wrapper>
