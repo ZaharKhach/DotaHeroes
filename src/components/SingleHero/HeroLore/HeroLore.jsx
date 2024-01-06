@@ -8,14 +8,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-margin-top: 80px;
-
+  margin-top: 80px;
 `;
 const TitleBox = styled.div`
-  width: 375px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 420px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 `;
 const ImgWrapper = styled.div`
   max-width: 46px;
@@ -29,20 +27,23 @@ const Title = styled.h1`
   padding: 0;
   color: #fff;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  text-transform: uppercase;
+  z-index: 3;
 `;
 const Hr2 = styled(Hr)`
   margin-top: 20px;
-  width: 100%;
+  width: 80%;
 `;
 const RolesBox = styled.div`
   margin-top: 20px;
   display: grid;
   grid-column-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  z-index:2;
 `;
 const Role = styled.div`
   color: #cecece;
@@ -56,9 +57,8 @@ const Role = styled.div`
 const WinrateBox = styled.div`
   margin-top: 40px;
   display: grid;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr;
   grid-row-gap: 20px;
-
 `;
 const WinrateBlock = styled.div`
   display: flex;
@@ -74,7 +74,6 @@ const WinrateText = styled.div`
   line-height: normal;
   text-transform: uppercase;
   font-family: "Hypatia", sans-serif;
-
 `;
 const WinrateNumber = styled.div`
   color: #cecece;
@@ -85,7 +84,6 @@ const WinrateNumber = styled.div`
   letter-spacing: 3px;
   text-transform: uppercase;
   font-family: "Hypatia", sans-serif;
-
 `;
 
 const GifImg = styled.img`
@@ -94,37 +92,44 @@ const GifImg = styled.img`
   margin-left: 30px; // Регулируйте отступ в соответствии с вашими предпочтениями
 `;
 
-const HeroLore = () => {
+const HeroLore = ({ heroLore }) => {
+  const { name, roles, agility, turboWinRate, allPickWinRate, proPickWinRate } =
+    heroLore;
+  const agilities = {
+    agi: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png",
+    str: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png",
+    int: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
+    all: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_universal.png",
+  };
+  console.log(roles);
   return (
     <Wrapper>
       <TitleBox>
         <ImgWrapper>
-          <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" />
+          <Img src={agilities[agility]} />
         </ImgWrapper>
-        <Title>ANTI-MAGE</Title>
+        <Title>{name}</Title>
       </TitleBox>
       <Hr2 />
       <RolesBox>
-        <Role>Carry</Role>
-        <Role>Escape</Role>
-        <Role>Nuker</Role>
-
+        {roles.map((item) => {
+          return <Role>{item}</Role>;
+        })}
       </RolesBox>
       <WinrateBox>
         <WinrateBlock>
           <WinrateText>Turbo Winrate</WinrateText>
-          <WinrateNumber>52.22%</WinrateNumber>
+          <WinrateNumber>{turboWinRate}%</WinrateNumber>
         </WinrateBlock>
         <WinrateBlock>
           <WinrateText>ALL PICK WINRATE</WinrateText>
-          <WinrateNumber>52.22%</WinrateNumber>
+          <WinrateNumber>{allPickWinRate}%</WinrateNumber>
         </WinrateBlock>
         <WinrateBlock>
           <WinrateText>PRO SCENE WINRATE</WinrateText>
-          <WinrateNumber>52.22%</WinrateNumber>
+          <WinrateNumber>{proPickWinRate}%</WinrateNumber>
         </WinrateBlock>
       </WinrateBox>
-
     </Wrapper>
   );
 };

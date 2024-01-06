@@ -54,6 +54,7 @@ const SingleHeroPege = () => {
     return {
       name: hero.localized_name,
       roles: hero.roles,
+      agility: hero.primary_attr,
       turboWinRate: ((hero.turbo_wins / hero.turbo_picks) * 100).toFixed(2),
       allPickWinRate: ((hero.pub_win / hero.pub_pick) * 100).toFixed(2),
       proPickWinRate: ((hero.pro_win / hero.pro_pick) * 100).toFixed(2),
@@ -69,7 +70,6 @@ const SingleHeroPege = () => {
   console.log(heroObj[0].name);
 
   useEffect(() => {
-    // Прокрутка страницы вверх при монтировании компонента
     window.scrollTo(0, 0);
   }, []);
 
@@ -78,7 +78,7 @@ const SingleHeroPege = () => {
       <Back to={`/heroes/`}>back to all</Back>
       <Container>
         <ComponentsWrapper>
-          <HeroLore />
+          <HeroLore heroLore={heroLoreObj[0]} />
           <Hero name={heroObj[0].name} />
           <HeroStats />
         </ComponentsWrapper>
