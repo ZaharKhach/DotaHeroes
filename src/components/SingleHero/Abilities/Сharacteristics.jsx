@@ -16,7 +16,10 @@ const DefenceBlock = styled(BlockBase)`
   justify-content: start;
 `;
 
-const AttackTitle = styled(TitleBase)``;
+const AttackTitle = styled(TitleBase)`
+  font-family: "Hypatia", sans-serif;
+  letter-spacing: 1.6px;
+`;
 
 const DefenceRow = styled(RowBase)`
   width: 70%;

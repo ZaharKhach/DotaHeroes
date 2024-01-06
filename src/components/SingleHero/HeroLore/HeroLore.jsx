@@ -8,6 +8,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
+margin-top: 80px;
+
 `;
 const TitleBox = styled.div`
   width: 375px;
@@ -34,29 +36,29 @@ const Title = styled.h1`
 `;
 const Hr2 = styled(Hr)`
   margin-top: 20px;
-  width: 420px;
+  width: 100%;
 `;
 const RolesBox = styled.div`
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  display: grid;
-  grid-gap: 8px;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `;
 const Role = styled.div`
   color: #cecece;
-  font-size: 25px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  text-align: center;
-  text-transform: uppercase;
+  text-align: left;
+  font-family: "Hypatia", sans-serif;
 `;
 const WinrateBox = styled.div`
   margin-top: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-columns: 1fr ;
+  grid-row-gap: 20px;
+
 `;
 const WinrateBlock = styled.div`
   display: flex;
@@ -71,6 +73,8 @@ const WinrateText = styled.div`
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
+  font-family: "Hypatia", sans-serif;
+
 `;
 const WinrateNumber = styled.div`
   color: #cecece;
@@ -80,6 +84,8 @@ const WinrateNumber = styled.div`
   line-height: normal;
   letter-spacing: 3px;
   text-transform: uppercase;
+  font-family: "Hypatia", sans-serif;
+
 `;
 
 const GifImg = styled.img`
@@ -100,15 +106,13 @@ const HeroLore = () => {
       <Hr2 />
       <RolesBox>
         <Role>Carry</Role>
-        <Role>Carry</Role>
-        <Role>Carry</Role>
-        <Role>Carry</Role>
-        <Role>Carry</Role>
-        <Role>Carry</Role>
+        <Role>Escape</Role>
+        <Role>Nuker</Role>
+
       </RolesBox>
       <WinrateBox>
         <WinrateBlock>
-          <WinrateText>TURBO WINRATE</WinrateText>
+          <WinrateText>Turbo Winrate</WinrateText>
           <WinrateNumber>52.22%</WinrateNumber>
         </WinrateBlock>
         <WinrateBlock>
@@ -121,7 +125,6 @@ const HeroLore = () => {
         </WinrateBlock>
       </WinrateBox>
 
-      <GifImg src="https://media.tenor.com/wRlazwysyPIAAAAC/russian-boy-dancing.gif" />
     </Wrapper>
   );
 };

@@ -10,6 +10,8 @@ const HealthText = styled.div`
   line-height: normal;
   text-align: left;
   text-transform: uppercase;
+  font-family: "Hypatia", sans-serif;
+  letter-spacing: 1.5px;
 `;
 
 const ManaText = styled(HealthText)`
@@ -21,18 +23,10 @@ const Health = styled.div`
   width: 100%;
   height: 44px;
   border-radius: 4px;
-  background: radial-gradient(
-    2024.47% 52.39% at 50% 51.35%,
-    #0c9200 0%,
-    #0a3104 100%
-  );
+  background: linear-gradient(270deg, #0c9200 49.49%, #0a3104 102.39%);
 `;
 const Mana = styled(Health)`
-  background: radial-gradient(
-    2024.47% 52.39% at 50% 51.35%,
-    #005592 0%,
-    #04312c 100%
-  );
+  background: linear-gradient(270deg, #005592 50.71%, #04312c 102.39%);
 `;
 
 const HealthNumber = styled.div`
@@ -42,10 +36,11 @@ const HealthNumber = styled.div`
   transform: translate(-50%, -50%);
   color: #fff;
   text-align: center;
-  font-size: 25px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  font-family: "Hypatia", sans-serif;
+  font-size: 27px;
 `;
 const HealthRegen = styled(HealthNumber)`
   position: absolute;
@@ -53,6 +48,7 @@ const HealthRegen = styled(HealthNumber)`
   left: 100%;
   transform: translate(-150%, -50%);
   font-size: 18px;
+  font-family: "Hypatia", sans-serif;
 `;
 
 const HealthAndMana = () => {

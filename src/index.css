@@ -18,4 +18,8 @@ body {
   src: url("./assets/fonts/Inter-VariableFont_slnt\,wght.ttf")
     format("truetype");
 }
-
+@font-face {
+  font-family: "Hypatia";
+  src: url("./assets/fonts/Hypatia/HypatiaSansPro-Regular.otf")
+    format("opentype");
+}

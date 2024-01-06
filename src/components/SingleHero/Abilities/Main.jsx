@@ -6,6 +6,7 @@ import Сharacteristics from "./Сharacteristics";
 import Stats from "./Stats";
 
 const Wrapper = styled.div`
+margin-top: 80px;
 `;
 
 

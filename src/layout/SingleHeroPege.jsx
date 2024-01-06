@@ -31,7 +31,7 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 const ComponentsWrapper = styled.div`
-  margin-top: 50px;
+  margin-top: -42px;
   grid-template-columns: 20% 49% 28% ;
   display: grid;
   grid-gap: 15px;
@@ -45,7 +45,7 @@ const SingleHeroPege = () => {
 
   return (
     <Wrapper>
-      <Back to={`/heroes/`}>SEE ALL HEROES</Back>
+      <Back to={`/heroes/`}>ALL HEROES</Back>
       <Container>
         <ComponentsWrapper>
           <HeroLore/>

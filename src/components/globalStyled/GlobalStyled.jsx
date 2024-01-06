@@ -49,10 +49,12 @@ export const TitleBase = styled.div`
   text-transform: uppercase;
   margin-bottom: 14px;
   text-align: center;
+  font-family: "Hypatia", sans-serif;
+  letter-spacing: 1.6px;
 `;
 
 export const RowBase = styled.div`
-  width: 68%;
+  width: 77%;
   display: flex;
   justify-content: space-between;
   align-items: center;
