@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import Abilites from "./Abilites";
 import HealthAndMana from "./HealthAndMana";
 import Сharacteristics from "./Сharacteristics";
 import Stats from "./Stats";
@@ -59,7 +58,6 @@ const Abilities = ({ heroStats }) => {
   };
   return (
     <Wrapper>
-      <Abilites />
       <HealthAndMana data={healthAndMana} />
       <Сharacteristics data={characteristics} />
       <Stats  data={stats}/>

@@ -36,13 +36,13 @@ const Title = styled.h1`
 `;
 const Hr2 = styled(Hr)`
   margin-top: 20px;
-  width: 80%;
+  width: 100%;
 `;
 const RolesBox = styled.div`
   margin-top: 20px;
   display: grid;
   grid-column-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   z-index: 2;
 `;
 const Role = styled.div`
@@ -51,7 +51,7 @@ const Role = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  text-align: left;
+  text-align: center;
   font-family: "Hypatia", sans-serif;
 `;
 const WinrateBox = styled.div`

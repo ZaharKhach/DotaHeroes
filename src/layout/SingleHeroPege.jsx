@@ -9,15 +9,19 @@ import { useGetDotaHeroesQuery } from "../api/dota";
 import background from "../assets/images/single_hero_bg.jpg";
 import { GlobalWrapper } from "../components/globalStyled/GlobalStyled";
 
-import HeroStats from "../components/SingleHero/Abilities/Main";
+import HeroStats from "../components/SingleHero/HeroStats/Main";
 import Hero from "../components/SingleHero/Hero/Hero";
 import HeroLore from "../components/SingleHero/HeroLore/HeroLore";
 import { filterData } from "../components/Main/fucntions";
+import Abilites from "../components/SingleHero/Abilites/Main";
+
+import { Error, Loading } from "../components/globalStyled/GlobalStyled";
+import { MoonLoader } from "react-spinners";
 
 const Wrapper = styled(GlobalWrapper)`
   background: center center/cover no-repeat;
   background-image: url(${background});
-  height: 200vh;
+  height: 400vh;
 `;
 const Back = styled(Link)`
   margin-left: 10px;
@@ -44,11 +48,11 @@ const ComponentsWrapper = styled.div`
 const SingleHeroPege = () => {
   let { id } = useParams();
 
-  const { data, error, isLoading } = useGetDotaHeroesQuery();
+  const { data, error, isLoading, isFetching } = useGetDotaHeroesQuery();
+  console.log(data);
   const hero = filterData(data, id);
 
-  console.log(hero)
-
+  console.log(hero);
 
   const heroLoreObj = hero.map((hero) => {
     return {
@@ -68,7 +72,7 @@ const SingleHeroPege = () => {
     };
   });
 
-  const heroStatsObj = hero.map(hero => {
+  const heroStatsObj = hero.map((hero) => {
     return {
       health: hero.base_health,
       healthRegen: hero.base_health_regen,
@@ -87,25 +91,42 @@ const SingleHeroPege = () => {
       agi: hero.base_agi,
       strGain: hero.str_gain,
       agiGain: hero.agi_gain,
-      intGain: hero.int_gain
-    }
-  })
+      intGain: hero.int_gain,
+    };
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <Wrapper>
-      <Back to={`/heroes/`}>back to all</Back>
-      <Container>
-        <ComponentsWrapper>
-          <HeroLore heroLore={heroLoreObj[0]} />
-          <Hero name={heroObj[0].name} />
-          <HeroStats heroStats={heroStatsObj[0]} />
-        </ComponentsWrapper>
-      </Container>
-    </Wrapper>
+    <>
+      {error ? (
+        <Error>
+          <h1>{error.data.error}</h1>
+          <hr />
+          <h3>{error.status}</h3>
+        </Error>
+      ) : isLoading || isFetching ? (
+        <Loading>
+          <MoonLoader color="#ffffff" size={150} />
+        </Loading>
+      ) : (
+        <>
+          <Wrapper>
+            <Back to={`/heroes/`}>back to all</Back>
+            <Container>
+              <ComponentsWrapper>
+                <HeroLore heroLore={heroLoreObj[0]} />
+                <Hero name={heroObj[0].name} />
+                <HeroStats heroStats={heroStatsObj[0]} />
+              </ComponentsWrapper>
+              <Abilites />
+            </Container>
+          </Wrapper>
+        </>
+      )}
+    </>
   );
 };
 

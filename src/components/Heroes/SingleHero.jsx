@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { baseUrl } from "../../api/baseUrl";
 
 import { Link } from "react-router-dom";
 
@@ -54,7 +53,7 @@ const SingleHero = ({id, name, img }) => {
   return (
     <Wrapper>
       <Link to={`/heroes/${id}`}>
-        <Icon image={baseUrl + img} />
+        <Icon image={"https://cdn.cloudflare.steamstatic.com/" + img} />
         <Name>{name}</Name>
       </Link>
     </Wrapper>
