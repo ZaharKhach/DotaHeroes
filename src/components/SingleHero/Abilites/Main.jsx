@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Video from "./Video";
 import Skills from "./Skills";
+import Talents from "./TalentBox";
 
 const Title = styled.h2`
   display: block;
@@ -22,6 +23,7 @@ const AbilitesBox = styled.div`
   margin-top: 30px;
   display: grid;
   grid-template-columns: 887px 580px;
+  position: relative;
 `;
 const VideoBlock = styled.div`
   padding: 0px 12px 40px 12px;
@@ -37,6 +39,7 @@ const Main = () => {
         <VideoBlock>
           <Video />
           <Skills />
+          <Talents/>
         </VideoBlock>
         <DescriptionBlock> </DescriptionBlock>
       </AbilitesBox>

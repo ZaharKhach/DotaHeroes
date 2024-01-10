@@ -24,28 +24,32 @@ const Img = styled.img`
   width: 100%;
 `;
 
+
+
 const Skills = () => {
   return (
-    <Wrapper>
-      <ImgBox>
-        <ImgWrapper>
-          <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
-        </ImgWrapper>
-        <ImgWrapper>
-          <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
-        </ImgWrapper>
+    <>
+      <Wrapper>
+        <ImgBox>
+          <ImgWrapper>
+            <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
+          </ImgWrapper>
+          <ImgWrapper>
+            <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
+          </ImgWrapper>
 
+          <ImgWrapper>
+            <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
+          </ImgWrapper>
+          <ImgWrapper>
+            <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
+          </ImgWrapper>
+        </ImgBox>
         <ImgWrapper>
-          <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
+          <Img src={talentImg} />
         </ImgWrapper>
-        <ImgWrapper>
-          <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
-        </ImgWrapper>
-      </ImgBox>
-      <ImgWrapper>
-        <Img src={talentImg} />
-      </ImgWrapper>
-    </Wrapper>
+      </Wrapper>
+    </>
   );
 };
 
