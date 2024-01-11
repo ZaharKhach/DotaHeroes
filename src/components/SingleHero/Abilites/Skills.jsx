@@ -22,7 +22,11 @@ const ImgWrapper = styled.div`
 `;
 const Img = styled.img`
   width: 100%;
+  box-shadow: 0px 0px 8.9px 3px #000;
 `;
+const TalentImg = styled(Img)`
+  box-shadow:none;
+`
 
 
 
@@ -37,7 +41,6 @@ const Skills = () => {
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
           </ImgWrapper>
-
           <ImgWrapper>
             <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
           </ImgWrapper>
@@ -46,7 +49,7 @@ const Skills = () => {
           </ImgWrapper>
         </ImgBox>
         <ImgWrapper>
-          <Img src={talentImg} />
+          <TalentImg src={talentImg} />
         </ImgWrapper>
       </Wrapper>
     </>

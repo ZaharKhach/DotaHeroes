@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Video from "./Video";
 import Skills from "./Skills";
 import Talents from "./TalentBox";
+import Header from "./Header";
+import Description from "./Description";
 
 const Title = styled.h2`
   display: block;
@@ -39,9 +41,12 @@ const Main = () => {
         <VideoBlock>
           <Video />
           <Skills />
-          <Talents/>
+          <Talents />
         </VideoBlock>
-        <DescriptionBlock> </DescriptionBlock>
+        <DescriptionBlock>
+          <Header />
+          <Description/>
+        </DescriptionBlock>
       </AbilitesBox>
     </>
   );

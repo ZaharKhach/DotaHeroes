@@ -7,8 +7,10 @@ const Wrapper = styled.div`
   position: absolute;
   background: linear-gradient(46deg, #57595d 0.49%, #303541 82.42%);
   box-shadow: 0px 0px 21.5px 7px #000;
-  right: -15%;
+  right: -17%;
   top: 15%;
+
+  opacity: 0;
 `;
 const Title = styled.div`
   margin-top: 10px;
@@ -76,13 +78,13 @@ const SingleTalentNumber20 = styled(SingleTalentNumber25)`
   top: 25%;
 `;
 const SingleTalentNumber15 = styled(SingleTalentNumber25)`
-    top:52%;
+  top: 52%;
 `;
 const SingleTalentNumber10 = styled(SingleTalentNumber25)`
-    top:78%;
-`
+  top: 78%;
+`;
 const Number = styled.span`
-margin-top: 5px;
+  margin-top: 5px;
   color: #f2c777;
   text-align: center;
   font-family: "Hypatia", sans-serif;
@@ -90,41 +92,45 @@ margin-top: 5px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  z-index :1;
+  z-index: 1;
 `;
 const Talents = () => {
   return (
     <Wrapper>
       <Title>TALENT TREE</Title>
       <TalentsBox>
+
         <SingleTalentBox>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-          <SingleTalentNumber25>
-            <Number>25</Number>
-          </SingleTalentNumber25>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
         </SingleTalentBox>
         <SingleTalentBox>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-          <SingleTalentNumber20>
-            <Number>20</Number>
-          </SingleTalentNumber20>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
         </SingleTalentBox>
         <SingleTalentBox>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-          <SingleTalentNumber15>
-            <Number>15</Number>
-          </SingleTalentNumber15>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
         </SingleTalentBox>
         <SingleTalentBox>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-          <SingleTalentNumber10>
-            <Number>10</Number>
-          </SingleTalentNumber10>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
         </SingleTalentBox>
+
+        <SingleTalentNumber25>
+          <Number>25</Number>
+        </SingleTalentNumber25>
+
+        <SingleTalentNumber20>
+          <Number>20</Number>
+        </SingleTalentNumber20>
+
+        <SingleTalentNumber15>
+          <Number>15</Number>
+        </SingleTalentNumber15>
+        <SingleTalentNumber10>
+          <Number>10</Number>
+        </SingleTalentNumber10>
       </TalentsBox>
     </Wrapper>
   );
