@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { useGetDotaHeroesQuery } from "../api/dota";
+import {
+  useGetDotaAbilitiesQuery,
+  useGetDotaHeroAbilitiesQuery,
+  useGetDotaHeroesQuery,
+} from "../api/dota";
 
 import background from "../assets/images/single_hero_bg.jpg";
 import { GlobalWrapper } from "../components/globalStyled/GlobalStyled";
@@ -14,7 +18,7 @@ import Hero from "../components/SingleHero/Hero/Hero";
 import HeroLore from "../components/SingleHero/HeroLore/HeroLore";
 import Abilites from "../components/SingleHero/Abilites/Main";
 
-import { filterData } from "../fucntions";
+import { filterData, fitlerHeroAbilities } from "../fucntions";
 import {
   heroLoreFilter,
   heroObjFilter,
@@ -55,7 +59,26 @@ const SingleHeroPage = () => {
   let { id } = useParams();
 
   const { data, error, isLoading, isFetching } = useGetDotaHeroesQuery();
+  const {
+    data: heroesAbilities,
+    error: errorHeroAbility,
+    isLoading: isLoadingHeroAbility,
+    isFetching: isFetchingHeroAbility,
+  } = useGetDotaHeroAbilitiesQuery();
+  const {
+    data: AllAbilities,
+    isLoading: isLoadingAbilities,
+    error: errorAbilities,
+    isFetching: isFetchingAbilities,
+  } = useGetDotaAbilitiesQuery();
+
   const hero = filterData(data, id);
+  let heroAbilities;
+
+  if (!isLoadingHeroAbility || !isFetchingHeroAbility) {
+    heroAbilities = fitlerHeroAbilities(heroesAbilities, hero[0].name);
+    console.log("heroab", heroAbilities);
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -67,13 +90,18 @@ const SingleHeroPage = () => {
 
   return (
     <>
-      {error ? (
+      {error || errorHeroAbility || errorAbilities ? (
         <Error>
           <h1>{error.data.error}</h1>
           <hr />
           <h3>{error.status}</h3>
         </Error>
-      ) : isLoading || isFetching ? (
+      ) : isLoading ||
+        isFetching ||
+        isLoadingHeroAbility ||
+        isFetchingHeroAbility ||
+        isLoadingAbilities ||
+        isFetchingAbilities ? (
         <Loading>
           <MoonLoader color="#ffffff" size={150} />
         </Loading>
@@ -87,7 +115,10 @@ const SingleHeroPage = () => {
                 <Hero name={heroObj[0].name} />
                 <HeroStats heroStats={heroStatsObj[0]} />
               </ComponentsWrapper>
-              <Abilites />
+              <Abilites
+                heroAbilities={heroAbilities}
+                AllAbilities={AllAbilities}
+              />
             </Container>
           </Wrapper>
         </>

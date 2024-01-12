@@ -10,6 +10,12 @@ const dotaApi = createApi({
         }),
         getDotaHeroes: builder.query({
             query: () => 'api/heroStats/'
+        }),
+        getDotaHeroAbilities: builder.query({
+            query: () => '/api/constants/hero_abilities'
+        }),
+        getDotaAbilities: builder.query({
+            query: () => '/api/constants/abilities'
         })
     })
 });
@@ -17,6 +23,8 @@ const dotaApi = createApi({
 export const {
     useGetDotaStatsQuery,
     useGetDotaHeroesQuery,
+    useGetDotaAbilitiesQuery,
+    useGetDotaHeroAbilitiesQuery
      } = dotaApi
 
 export default dotaApi;

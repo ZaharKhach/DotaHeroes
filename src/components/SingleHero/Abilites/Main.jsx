@@ -3,9 +3,12 @@ import styled from "styled-components";
 
 import Video from "./Video";
 import Skills from "./Skills";
-import Talents from "./TalentBox";
 import Header from "./Header";
 import Description from "./Description";
+import {
+  useGetDotaAbilitiesQuery,
+  useGetDotaHeroAbilitiesQuery,
+} from "../../../api/dota";
 
 const Title = styled.h2`
   display: block;
@@ -33,19 +36,34 @@ const VideoBlock = styled.div`
 `;
 const DescriptionBlock = styled.div``;
 
-const Main = () => {
+const Main = ({ heroAbilities, AllAbilities }) => {
+
+  const { abilities } = heroAbilities;
+  let newAbilities = [];
+
+  console.log(abilities);
+  newAbilities = abilities.map((ability) => {
+    for (let key in AllAbilities) {
+      if (key === ability) {
+        return {
+          ...AllAbilities[key],
+          heroName: key,
+        };
+      }
+    }
+  });
+
   return (
     <>
       <Title>abilities</Title>
       <AbilitesBox>
         <VideoBlock>
-          <Video />
-          <Skills />
-          <Talents />
+          <Video abilities={abilities} />
+          <Skills skills={newAbilities} />
         </VideoBlock>
         <DescriptionBlock>
           <Header />
-          <Description/>
+          <Description />
         </DescriptionBlock>
       </AbilitesBox>
     </>

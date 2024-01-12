@@ -101,7 +101,6 @@ const HeroLore = ({ heroLore }) => {
     int: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png",
     all: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_universal.png",
   };
-  console.log(roles);
   return (
     <Wrapper>
       <TitleBox>

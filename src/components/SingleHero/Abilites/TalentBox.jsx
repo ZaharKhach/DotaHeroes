@@ -1,17 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  width: 404px;
-  height: 326px;
-  position: absolute;
-  background: linear-gradient(46deg, #57595d 0.49%, #303541 82.42%);
-  box-shadow: 0px 0px 21.5px 7px #000;
-  right: -17%;
-  top: 15%;
+import { motion } from "framer-motion";
 
-  opacity: 0;
-`;
 const Title = styled.div`
   margin-top: 10px;
   color: #fff;
@@ -94,9 +85,33 @@ const Number = styled.span`
   line-height: normal;
   z-index: 1;
 `;
-const Talents = () => {
+const Talents = ({ active }) => {
+  const Wrapper = styled.div`
+    width: 404px;
+    height: 326px;
+    position: absolute;
+    background: linear-gradient(46deg, #57595d 0.49%, #303541 82.42%);
+    box-shadow: 0px 0px 21.5px 7px #000;
+    right: -17%;
+    bottom: 110%;
+
+    opacity: 0;
+    transition: opacity 1s ease;
+
+    ${active &&
+    `
+      opacity: 1;
+    `}
+  `;
+
+
   return (
-    <Wrapper>
+    <Wrapper
+      as={motion.div}
+      initial={{ opacity: 0 }} // Initial animation state
+      animate={{ opacity: active ? 1 : 0 }} // Animated state based on the 'active' prop
+      transition={{ duration: 0.3 }}
+    >
       <Title>TALENT TREE</Title>
       <TalentsBox>
 
@@ -104,14 +119,17 @@ const Talents = () => {
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
         </SingleTalentBox>
+
         <SingleTalentBox>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
         </SingleTalentBox>
+
         <SingleTalentBox>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
         </SingleTalentBox>
+
         <SingleTalentBox>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
           <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>

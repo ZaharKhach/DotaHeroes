@@ -28,6 +28,13 @@ export function filterData(data, id) {
 
   return dataArr.filter((item) => item.id === +id);
 }
+export function fitlerHeroAbilities(heroAbilities, name) {
+  for (let key in heroAbilities) {
+    if (key == name) {
+     return heroAbilities[key];
+    }
+  }
+}
 export const heroLoreFilter = (hero) => {
   return {
     name: hero.localized_name,

@@ -6,7 +6,9 @@ const AbilitiVideo = styled.video`
   width: 100%;
 `;
 
-const Video = () => {
+const Video = ({abilities}) => {
+
+  
   const poster =
     "https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/antimage/antimage_blink.jpg";
 
