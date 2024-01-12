@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import background from "../../assets/images/second_bg.png";
 import { GlobalWrapper } from "../globalStyled/GlobalStyled";
 
-import { formatNumberWithDots } from "./fucntions";
+import { formatNumberWithDots } from "../../fucntions";
 
 const Wrapper = styled(GlobalWrapper)`
   display: flex;
@@ -95,7 +95,7 @@ const SecondSection = ({ players, matches }) => {
         transition={{ duration: 0.5 }}
       >
         <InfoTitle>Matches last day</InfoTitle>
-        <InfoCount as={motion.h2} >{matchesRounded}</InfoCount>
+        <InfoCount as={motion.h2}>{matchesRounded}</InfoCount>
       </InfoWrapper>
     </Wrapper>
   );

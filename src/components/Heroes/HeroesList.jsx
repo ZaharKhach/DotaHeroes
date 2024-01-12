@@ -9,7 +9,7 @@ import { useMemo } from "react";
 
 import { selectSearchString } from "./slices/searchSlice";
 
-import { searchSymbol } from "../Main/fucntions";
+import { searchSymbol } from "../../fucntions";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Wrapper = styled.section`

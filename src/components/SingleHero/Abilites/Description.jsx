@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import cd from "../../../assets/icons/cd.png";
+import mana from "../../../assets/icons/mana.png";
+
 const Wrapper = styled.div`
   background-color: #000;
   padding: 15px 21px 15px 20px;
@@ -44,7 +47,6 @@ const AtributeDesc = styled.span`
 const AtributeDamage = styled(AtributeDesc)`
   color: red;
 `;
-
 const SecondBox = styled.div`
   margin-top: 38px;
   display: flex;
@@ -59,7 +61,33 @@ const SecondBoxBlock = styled(Block)`
 const SecondAtributeDesc = styled(AtributeDesc)`
   margin-left: 20px;
 `;
-
+const ThirdBox = styled.div`
+  margin-top: 38px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+const ThirdBoxItem = styled.div`
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+`;
+const ThirdBoxText = styled.span`
+  color: #fff;
+  text-shadow: 1px 1px 0px #000;
+  font-family: "Hypatia", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.8px;
+`;
+const ThirdBoxImg = styled.img`
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+`;
 const Description = () => {
   return (
     <Wrapper>
@@ -121,6 +149,18 @@ const Description = () => {
           <SecondAtributeDesc>0.75</SecondAtributeDesc>
         </SecondBoxBlock>
       </SecondBox>
+
+      <ThirdBox>
+        <ThirdBoxItem>
+          <ThirdBoxImg src={cd} />
+          <ThirdBoxText>25/30/35/40</ThirdBoxText>
+        </ThirdBoxItem>
+
+        <ThirdBoxItem>
+          <ThirdBoxImg src={mana} />
+          <ThirdBoxText>25/30/35/40</ThirdBoxText>
+        </ThirdBoxItem>
+      </ThirdBox>
     </Wrapper>
   );
 };

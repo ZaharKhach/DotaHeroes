@@ -12,8 +12,14 @@ import { GlobalWrapper } from "../components/globalStyled/GlobalStyled";
 import HeroStats from "../components/SingleHero/HeroStats/Main";
 import Hero from "../components/SingleHero/Hero/Hero";
 import HeroLore from "../components/SingleHero/HeroLore/HeroLore";
-import { filterData } from "../components/Main/fucntions";
 import Abilites from "../components/SingleHero/Abilites/Main";
+
+import { filterData } from "../fucntions";
+import {
+  heroLoreFilter,
+  heroObjFilter,
+  heroStatsObjFilter,
+} from "../fucntions";
 
 import { Error, Loading } from "../components/globalStyled/GlobalStyled";
 import { MoonLoader } from "react-spinners";
@@ -45,59 +51,19 @@ const ComponentsWrapper = styled.div`
   grid-gap: 15px;
 `;
 
-const SingleHeroPege = () => {
+const SingleHeroPage = () => {
   let { id } = useParams();
 
   const { data, error, isLoading, isFetching } = useGetDotaHeroesQuery();
-  console.log(data);
   const hero = filterData(data, id);
-
-  console.log(hero);
-
-  const heroLoreObj = hero.map((hero) => {
-    return {
-      name: hero.localized_name,
-      roles: hero.roles,
-      agility: hero.primary_attr,
-      turboWinRate: ((hero.turbo_wins / hero.turbo_picks) * 100).toFixed(2),
-      allPickWinRate: ((hero.pub_win / hero.pub_pick) * 100).toFixed(2),
-      proPickWinRate: ((hero.pro_win / hero.pro_pick) * 100).toFixed(2),
-    };
-  });
-
-  const heroObj = hero.map((hero) => {
-    const heroName = hero.name;
-    return {
-      name: heroName.replace("npc_dota_hero_", ""),
-    };
-  });
-
-  const heroStatsObj = hero.map((hero) => {
-    return {
-      health: hero.base_health,
-      healthRegen: hero.base_health_regen,
-      mana: hero.base_mana,
-      manaRegen: hero.base_mana_regen,
-      attackMin: hero.base_attack_min,
-      attackMax: hero.base_attack_max,
-      attackRate: hero.attack_rate,
-      atackRange: hero.attack_range,
-      armor: hero.base_armor,
-      moveSpeed: hero.move_speed,
-      dayVision: hero.day_vision,
-      nightVision: hero.night_vision,
-      str: hero.base_str,
-      int: hero.base_int,
-      agi: hero.base_agi,
-      strGain: hero.str_gain,
-      agiGain: hero.agi_gain,
-      intGain: hero.int_gain,
-    };
-  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const heroLoreObj = hero.map(heroLoreFilter);
+  const heroObj = hero.map(heroObjFilter);
+  const heroStatsObj = hero.map(heroStatsObjFilter);
 
   return (
     <>
@@ -130,4 +96,4 @@ const SingleHeroPege = () => {
   );
 };
 
-export default SingleHeroPege;
+export default SingleHeroPage;
