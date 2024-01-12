@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { v4 as uuid } from "uuid";
 
-import { activeAbilityChanged } from "../../Heroes/slices/HeroSlice";
+import { activeAbilityChanged, selectHeroActiveAbility } from "../../Heroes/slices/HeroSlice";
 
 import Talents from "./TalentBox";
 
@@ -53,7 +53,7 @@ const Skills = ({ skills }) => {
     dispatch(activeAbilityChanged(skills[0].heroName));
   }, [dispatch, skills]);
 
-  const active = useSelector((state) => state.heroAbility.activeAbility);
+  const active = useSelector(selectHeroActiveAbility);
   console.log(active);
 
   const handleHoverStart = () => {
