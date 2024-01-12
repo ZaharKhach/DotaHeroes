@@ -2,11 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import { v4 as uuid } from "uuid";
+
 import { activeAbilityChanged } from "../../Heroes/slices/HeroSlice";
 
 import Talents from "./TalentBox";
 
 import { useState } from "react";
+import { useEffect } from "react";
 
 import talentImg from "../../../assets/icons/talents.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,7 +29,7 @@ const ImgBox = styled.div`
 `;
 const ImgWrapper = styled.div`
   width: 100px;
-  height: 131.854px;
+  height: 100px;
 `;
 const Img = styled.img`
   filter: saturate(0) brightness(0.6);
@@ -45,10 +48,13 @@ const TalentImg = styled(Img)`
 const Skills = ({ skills }) => {
   const [activeTalentBlock, setActiveTalentBlock] = useState(false);
   const dispatch = useDispatch();
-  console.log(skills)
-  dispatch(activeAbilityChanged(skills[0].heroName));
+
+  useEffect(() => {
+    dispatch(activeAbilityChanged(skills[0].heroName));
+  }, [dispatch, skills]);
 
   const active = useSelector((state) => state.heroAbility.activeAbility);
+  console.log(active);
 
   const handleHoverStart = () => {
     setActiveTalentBlock(true);
@@ -58,30 +64,30 @@ const Skills = ({ skills }) => {
     setActiveTalentBlock(false);
   };
   const hangleOnClick = (e) => {
-    console.log(e);
+    const skillName = e.target.getAttribute('data-name');
+    dispatch(activeAbilityChanged(skillName));
+
   };
 
+  console.log(skills);
   return (
     <>
       <Wrapper>
         <ImgBox>
-          <ImgWrapper as={motion.div} whileHover={{ scale: 1.1 }}>
-            <Img
-              className="active"
+          {skills.map((item) => (
+            <ImgWrapper
+              key={uuid()}
+              as={motion.div}
+              whileHover={{ scale: 1.1 }}
               onClick={hangleOnClick}
-              img={"asdasd"}
-              src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png"
-            />
-          </ImgWrapper>
-          <ImgWrapper as={motion.div} whileHover={{ scale: 1.1 }}>
-            <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" />
-          </ImgWrapper>
-          <ImgWrapper as={motion.div} whileHover={{ scale: 1.1 }}>
-            <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
-          </ImgWrapper>
-          <ImgWrapper as={motion.div} whileHover={{ scale: 1.1 }}>
-            <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
-          </ImgWrapper>
+            >
+              <Img
+                className={active === item.heroName ? "active" : ""}
+                src={`https://cdn.cloudflare.steamstatic.com${item.img}`}
+                data-name={item.heroName}
+              />
+            </ImgWrapper>
+          ))}
         </ImgBox>
         <ImgWrapper
           as={motion.div}
