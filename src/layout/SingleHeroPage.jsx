@@ -57,6 +57,12 @@ const ComponentsWrapper = styled.div`
 
 const SingleHeroPage = () => {
   let { id } = useParams();
+  let hero;
+  let heroAbilities;
+
+  let heroLoreObj;
+  let heroObj;
+  let heroStatsObj;
 
   const { data, error, isLoading, isFetching } = useGetDotaHeroesQuery();
   const {
@@ -72,21 +78,30 @@ const SingleHeroPage = () => {
     isFetching: isFetchingAbilities,
   } = useGetDotaAbilitiesQuery();
 
-  const hero = filterData(data, id);
-  let heroAbilities;
+  if (!isLoading || !isFetching) {
+    hero = filterData(data, id);
+    if (hero && hero[0]) {
+      heroLoreObj = hero.map(heroLoreFilter);
+      heroObj = hero.map(heroObjFilter);
+      heroStatsObj = hero.map(heroStatsObjFilter);
+    }
+  }
 
-  if (!isLoadingHeroAbility || !isFetchingHeroAbility) {
-    heroAbilities = fitlerHeroAbilities(heroesAbilities, hero[0].name);
-    console.log("heroab", heroAbilities);
+  if (
+    !isLoadingHeroAbility ||
+    !isFetchingHeroAbility ||
+    !isLoading ||
+    !isFetching
+  ) {
+    if (hero && hero[0]) {
+      heroAbilities = fitlerHeroAbilities(heroesAbilities, hero[0].name);
+      console.log("heroab", heroAbilities);
+    }
   }
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const heroLoreObj = hero.map(heroLoreFilter);
-  const heroObj = hero.map(heroObjFilter);
-  const heroStatsObj = hero.map(heroStatsObjFilter);
 
   return (
     <>
