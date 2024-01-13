@@ -53,7 +53,7 @@ const Main = ({ heroAbilities, allAbilities }) => {
         </VideoBlock>
         <DescriptionBlock>
           <Header skills={abilitiesInfo} />
-          <Description />
+          <Description skills={abilitiesInfo} />
         </DescriptionBlock>
       </AbilitesBox>
     </>

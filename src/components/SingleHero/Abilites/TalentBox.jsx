@@ -86,7 +86,6 @@ const Number = styled.span`
   z-index: 1;
 `;
 const Talents = ({ active, talents }) => {
-  console.log(talents);
   const Wrapper = styled.div`
     width: 404px;
     height: 326px;

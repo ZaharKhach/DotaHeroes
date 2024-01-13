@@ -3,6 +3,9 @@ import styled from "styled-components";
 import cd from "../../../assets/icons/cd.png";
 import mana from "../../../assets/icons/mana.png";
 
+import { useSelector } from "react-redux";
+import { selectHeroActiveAbility } from "../../Heroes/slices/HeroSlice";
+
 const Wrapper = styled.div`
   background-color: #000;
   padding: 15px 21px 15px 20px;
@@ -45,7 +48,16 @@ const AtributeDesc = styled.span`
   line-height: normal;
 `;
 const AtributeDamage = styled(AtributeDesc)`
-  color: red;
+  color: #ffffff;
+  &.Pure {
+    color: #ff9900;
+  }
+  &.Magical {
+    color: #00aeff;
+  }
+  &.Physical {
+    color: red;
+  }
 `;
 const SecondBox = styled.div`
   margin-top: 38px;
@@ -68,11 +80,11 @@ const ThirdBox = styled.div`
   justify-content: space-between;
 `;
 const ThirdBoxItem = styled.div`
-  width: 25%;
+  width: 40%;
   display: flex;
-  justify-content: space-between;
 `;
 const ThirdBoxText = styled.span`
+  margin-left: 10px;
   color: #fff;
   text-shadow: 1px 1px 0px #000;
   font-family: "Hypatia", sans-serif;
@@ -88,80 +100,84 @@ const ThirdBoxImg = styled.img`
   height: 16px;
   border-radius: 3px;
 `;
-const Description = () => {
+const Description = ({ skills }) => {
+  const active = useSelector(selectHeroActiveAbility);
+
+  console.log(skills);
   return (
-    <Wrapper>
-      <FirstBox>
-        <Block>
-          <BoxItem>
-            <AtributeName>ABILITY:</AtributeName>
-            <AtributeDesc>Passive</AtributeDesc>
-          </BoxItem>
-          <BoxItem>
-            <AtributeName>DAMAGE TYPE:</AtributeName>
-            <AtributeDamage>Physical</AtributeDamage>
-          </BoxItem>
-          <BoxItem>
-            <AtributeName>AFFECTS:</AtributeName>
-            <AtributeDesc>Enemy Heroes</AtributeDesc>
-          </BoxItem>
-        </Block>
-        <Block>
-          <BoxItem>
-            <AtributeName>PIERCES SPELL IMMUNITY:</AtributeName>
-            <AtributeDesc>Yes</AtributeDesc>
-          </BoxItem>
-          <BoxItem>
-            <AtributeName>DISPELLABLE:</AtributeName>
-            <AtributeDesc>Yes</AtributeDesc>
-          </BoxItem>
-        </Block>
-      </FirstBox>
+    <>
+      {skills.map((skill, index) =>
+        skill.heroName === active ? (
+          <Wrapper key={index}>
+            <FirstBox>
+              <Block>
+                {skill.behavior ? (
+                  <BoxItem>
+                    <AtributeName>ABILITY:</AtributeName>
+                    <AtributeDesc>{`${skill.behavior}`}</AtributeDesc>
+                  </BoxItem>
+                ) : null}
 
-      <SecondBox>
-        <SecondBoxBlock>
-          <AtributeName>MANA BURNED AS DAMAGE:</AtributeName>
-          <SecondAtributeDesc>50%</SecondAtributeDesc>
-        </SecondBoxBlock>
+                {skill.dmg_type ? (
+                  <BoxItem>
+                    <AtributeName>DAMAGE TYPE:</AtributeName>
+                    <AtributeDamage className={skill.dmg_type}>
+                      {skill.dmg_type}
+                    </AtributeDamage>
+                  </BoxItem>
+                ) : null}
+              </Block>
+              <Block>
+                {skill.bkbpierce ? (
+                  <BoxItem>
+                    <AtributeName>PIERCES SPELL IMMUNITY:</AtributeName>
+                    <AtributeDesc>{skill.bkbpierce}</AtributeDesc>
+                  </BoxItem>
+                ) : null}
 
-        <SecondBoxBlock>
-          <AtributeName>MANA BURNED PER HIT:</AtributeName>
-          <SecondAtributeDesc>25/30/35/40</SecondAtributeDesc>
-        </SecondBoxBlock>
+                {skill.dispellable ? (
+                  <BoxItem>
+                    <AtributeName>DISPELLABLE:</AtributeName>
+                    <AtributeDesc>{skill.dispellable}</AtributeDesc>
+                  </BoxItem>
+                ) : null}
+              </Block>
+            </FirstBox>
 
-        <SecondBoxBlock>
-          <AtributeName>MAX MANA BURNED PER HIT:</AtributeName>
-          <SecondAtributeDesc>1.6%/2.4%/3.2%/4% </SecondAtributeDesc>
-        </SecondBoxBlock>
+            <SecondBox>
+              {skill.attrib.map((item, index) => (
+                <SecondBoxBlock key={index}>
+                  <AtributeName>{item.header}</AtributeName>
+                  <SecondAtributeDesc>
+                    {Array.isArray(item.value)
+                      ? item.value.join(" / ")
+                      : item.value}
+                  </SecondAtributeDesc>
+                </SecondBoxBlock>
+              ))}
+            </SecondBox>
 
-        <SecondBoxBlock>
-          <AtributeName>ILLUSION PERCENTAGE:</AtributeName>
-          <SecondAtributeDesc>50</SecondAtributeDesc>
-        </SecondBoxBlock>
+            <ThirdBox>
+              {skill.cd ? (
+                <ThirdBoxItem>
+                  <ThirdBoxImg src={cd} />
+                  <ThirdBoxText>
+                    {Array.isArray(skill.cd) ? skill.cd.join(" / ") : skill.cd}
+                  </ThirdBoxText>
+                </ThirdBoxItem>
+              ) : null}
 
-        <SecondBoxBlock>
-          <AtributeName>MOVE SPEED SLOW ON FULL DRAIN:</AtributeName>
-          <SecondAtributeDesc>1.6%/2.4%/3.2%/4%</SecondAtributeDesc>
-        </SecondBoxBlock>
-
-        <SecondBoxBlock>
-          <AtributeName>SLOW DURATION:</AtributeName>
-          <SecondAtributeDesc>0.75</SecondAtributeDesc>
-        </SecondBoxBlock>
-      </SecondBox>
-
-      <ThirdBox>
-        <ThirdBoxItem>
-          <ThirdBoxImg src={cd} />
-          <ThirdBoxText>25/30/35/40</ThirdBoxText>
-        </ThirdBoxItem>
-
-        <ThirdBoxItem>
-          <ThirdBoxImg src={mana} />
-          <ThirdBoxText>25/30/35/40</ThirdBoxText>
-        </ThirdBoxItem>
-      </ThirdBox>
-    </Wrapper>
+              {skill.mc ? (
+                <ThirdBoxItem>
+                  <ThirdBoxImg src={mana} />
+                  <ThirdBoxText>{Array.isArray(skill.mc) ? skill.mc.join(" / ") : skill.mc}</ThirdBoxText>
+                </ThirdBoxItem>
+              ) : null}
+            </ThirdBox>
+          </Wrapper>
+        ) : null
+      )}
+    </>
   );
 };
 

@@ -47,8 +47,6 @@ const Desc = styled.div`
 const Header = ({ skills }) => {
   const active = useSelector(selectHeroActiveAbility);
   const imgSrcBase = "https://cdn.cloudflare.steamstatic.com/";
-  console.log(skills);
-  console.log(active);
   return (
     <>
       {skills.map((skill, index) =>
