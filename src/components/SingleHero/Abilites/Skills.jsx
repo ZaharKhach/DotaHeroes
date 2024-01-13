@@ -30,6 +30,7 @@ const ImgBox = styled.div`
 const ImgWrapper = styled.div`
   width: 100px;
   height: 100px;
+  cursor: pointer;
 `;
 const Img = styled.img`
   filter: saturate(0) brightness(0.6);
@@ -45,7 +46,7 @@ const TalentImg = styled(Img)`
   box-shadow: none;
 `;
 
-const Skills = ({ skills }) => {
+const Skills = ({ skills, talents }) => {
   const [activeTalentBlock, setActiveTalentBlock] = useState(false);
   const dispatch = useDispatch();
 
@@ -54,7 +55,6 @@ const Skills = ({ skills }) => {
   }, [dispatch, skills]);
 
   const active = useSelector(selectHeroActiveAbility);
-  console.log(active);
 
   const handleHoverStart = () => {
     setActiveTalentBlock(true);
@@ -69,13 +69,13 @@ const Skills = ({ skills }) => {
 
   };
 
-  console.log(skills);
   return (
     <>
       <Wrapper>
         <ImgBox>
           {skills.map((item) => (
-            <ImgWrapper
+            item.behavior !== "Hidden" ? (
+              <ImgWrapper
               key={uuid()}
               as={motion.div}
               whileHover={{ scale: 1.1 }}
@@ -87,6 +87,9 @@ const Skills = ({ skills }) => {
                 data-name={item.heroName}
               />
             </ImgWrapper>
+            ) : (
+              null
+            )
           ))}
         </ImgBox>
         <ImgWrapper
@@ -97,7 +100,7 @@ const Skills = ({ skills }) => {
         >
           <TalentImg src={talentImg} />
         </ImgWrapper>
-        <Talents active={activeTalentBlock} />
+        <Talents talents={talents} active={activeTalentBlock} />
       </Wrapper>
     </>
   );

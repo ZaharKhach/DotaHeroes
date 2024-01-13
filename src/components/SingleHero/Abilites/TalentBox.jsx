@@ -85,7 +85,8 @@ const Number = styled.span`
   line-height: normal;
   z-index: 1;
 `;
-const Talents = ({ active }) => {
+const Talents = ({ active, talents }) => {
+  console.log(talents);
   const Wrapper = styled.div`
     width: 404px;
     height: 326px;
@@ -104,7 +105,6 @@ const Talents = ({ active }) => {
     `}
   `;
 
-
   return (
     <Wrapper
       as={motion.div}
@@ -114,26 +114,12 @@ const Talents = ({ active }) => {
     >
       <Title>TALENT TREE</Title>
       <TalentsBox>
-
-        <SingleTalentBox>
-          <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-          <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-        </SingleTalentBox>
-
-        <SingleTalentBox>
-          <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-          <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-        </SingleTalentBox>
-
-        <SingleTalentBox>
-          <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-          <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-        </SingleTalentBox>
-
-        <SingleTalentBox>
-          <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-          <SingleTalentText> -50s Mana Void Cooldown</SingleTalentText>
-        </SingleTalentBox>
+        {talents.map((talent, index) => (
+          <SingleTalentBox key={index}>
+            <SingleTalentText>{talent.left}</SingleTalentText>
+            <SingleTalentText>{talent.right}</SingleTalentText>
+          </SingleTalentBox>
+        ))}
 
         <SingleTalentNumber25>
           <Number>25</Number>

@@ -10,8 +10,11 @@ const AbilitiVideo = styled.video`
 `;
 
 const Video = ({ abilities }) => {
-  console.log(abilities);
   const active = useSelector(selectHeroActiveAbility);
+
+  const baseUrl =
+    "https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities";
+  const videoUrl = `${baseUrl}/${active.split("_")[0]}/${active}`;
 
   return (
     <>
@@ -20,20 +23,15 @@ const Video = ({ abilities }) => {
           item === active && (
             <AbilitiVideo
               key={item}
-              poster={`https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/${
-                active.split("_")[0]
-              }/${active}.jpg`}
+              poster={`${videoUrl}.jpg`}
               autoPlay
-              muted
               preload="auto"
               loop
+              playsInline
+              muted
             >
-              <source
-                type="video/webm"
-                src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/${
-                  active.split("_")[0]
-                }/${active}.webm`}
-              />
+              <source type="video/webm" src={`${videoUrl}.webm`} />
+              <source type="video/mp4" src={`${videoUrl}.mp4`}></source>
             </AbilitiVideo>
           )
       )}

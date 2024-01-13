@@ -95,7 +95,6 @@ const SingleHeroPage = () => {
   ) {
     if (hero && hero[0]) {
       heroAbilities = fitlerHeroAbilities(heroesAbilities, hero[0].name);
-      console.log("heroab", heroAbilities);
     }
   }
 

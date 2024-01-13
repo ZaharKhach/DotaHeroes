@@ -37,12 +37,12 @@ const VideoBlock = styled.div`
 const DescriptionBlock = styled.div``;
 
 const Main = ({ heroAbilities, AllAbilities }) => {
-
   const { abilities } = heroAbilities;
-  let newAbilities = [];
+  const { talents } = heroAbilities;
+  let abilitiesInfo = [];
+  let talentsInfo = [];
 
-  console.log(abilities);
-  newAbilities = abilities.map((ability) => {
+  abilitiesInfo = abilities.map((ability) => {
     for (let key in AllAbilities) {
       if (key === ability) {
         return {
@@ -53,13 +53,32 @@ const Main = ({ heroAbilities, AllAbilities }) => {
     }
   });
 
+  talentsInfo = talents.reduce((acc, talent, index) => {
+    for (let key in AllAbilities) {
+      if (talent.name && talent.name === key) {
+        const currentRight = AllAbilities[key].dname;
+        const nextLeft = talents[index + 1]
+          ? AllAbilities[talents[index + 1].name].dname
+          : null;
+        if (index % 2 === 0) {
+          const obj = {
+            right: currentRight,
+            left: nextLeft,
+          };
+          acc.push(obj);
+        }
+      }
+    }
+    return acc;
+  }, []).reverse();
+
   return (
     <>
       <Title>abilities</Title>
       <AbilitesBox>
         <VideoBlock>
           <Video abilities={abilities} />
-          <Skills skills={newAbilities} />
+          <Skills skills={abilitiesInfo} talents={talentsInfo} />
         </VideoBlock>
         <DescriptionBlock>
           <Header />
