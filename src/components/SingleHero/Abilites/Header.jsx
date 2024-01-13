@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
+import { useSelector } from "react-redux";
+import { selectHeroActiveAbility } from "../../Heroes/slices/HeroSlice";
+
 const HeaderBox = styled.div`
   padding: 14px 33px 24px 14px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
   background: #080808;
 `;
 const ImgWrapper = styled.div`
@@ -41,22 +44,28 @@ const Desc = styled.div`
   line-height: normal;
 `;
 
-const Header = () => {
+const Header = ({ skills }) => {
+  const active = useSelector(selectHeroActiveAbility);
+  const imgSrcBase = "https://cdn.cloudflare.steamstatic.com/";
+  console.log(skills);
+  console.log(active);
   return (
-    <HeaderBox>
-      <ImgWrapper>
-        <Img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" />
-      </ImgWrapper>
+    <>
+      {skills.map((skill, index) =>
+        skill.heroName === active ? (
+          <HeaderBox key={index}>
+            <ImgWrapper>
+              <Img src={`${imgSrcBase}${skill.img}`} />
+            </ImgWrapper>
 
-      <TextBlock>
-        <Title>Mana break</Title>
-        <Desc>
-          Sprays high-pressure acid across a target area. Enemy units who step
-          across the contaminated terrain take damage per second and have their
-          armor reduced.
-        </Desc>
-      </TextBlock>
-    </HeaderBox>
+            <TextBlock>
+              <Title>{skill.dname}</Title>
+              <Desc>{skill.desc} </Desc>
+            </TextBlock>
+          </HeaderBox>
+        ) : null
+      )}
+    </>
   );
 };
 

@@ -72,7 +72,7 @@ const SingleHeroPage = () => {
     isFetching: isFetchingHeroAbility,
   } = useGetDotaHeroAbilitiesQuery();
   const {
-    data: AllAbilities,
+    data: allAbilities,
     isLoading: isLoadingAbilities,
     error: errorAbilities,
     isFetching: isFetchingAbilities,
@@ -131,7 +131,7 @@ const SingleHeroPage = () => {
               </ComponentsWrapper>
               <Abilites
                 heroAbilities={heroAbilities}
-                AllAbilities={AllAbilities}
+                allAbilities={allAbilities}
               />
             </Container>
           </Wrapper>

@@ -1,12 +1,9 @@
 export function formatNumberWithDots(number) {
-  // Преобразовать число в строку
   const numberString = number.toString();
-  // Разделить строку на группы по три цифры, начиная с конца
   const groups = [];
   for (let i = numberString.length; i > 0; i -= 3) {
     groups.unshift(numberString.slice(Math.max(i - 3, 0), i));
   }
-  // Соединить группы точками
   const formattedNumber = groups.join('.');
   return +formattedNumber;
 }
@@ -31,7 +28,7 @@ export function filterData(data, id) {
 export function fitlerHeroAbilities(heroAbilities, name) {
   for (let key in heroAbilities) {
     if (key == name) {
-     return heroAbilities[key];
+      return heroAbilities[key];
     }
   }
 }
@@ -73,3 +70,35 @@ export const heroStatsObjFilter = (hero) => {
     intGain: hero.int_gain,
   };
 };
+export function filterTalents(talents, allAbilities) {
+  return talents.reduce((acc, talent, index) => {
+    for (let key in allAbilities) {
+      if (talent.name && talent.name === key) {
+        const currentRight = allAbilities[key].dname;
+        const nextLeft = talents[index + 1]
+          ? allAbilities[talents[index + 1].name].dname
+          : null;
+        if (index % 2 === 0) {
+          const obj = {
+            right: currentRight,
+            left: nextLeft,
+          };
+          acc.push(obj);
+        }
+      }
+    }
+    return acc;
+  }, []).reverse();
+}
+export function fitlerAbilities(abilities, allAbilities) {
+  return abilities.map((ability) => {
+    for (let key in allAbilities) {
+      if (key === ability) {
+        return {
+          ...allAbilities[key],
+          heroName: key,
+        };
+      }
+    }
+  });
+}

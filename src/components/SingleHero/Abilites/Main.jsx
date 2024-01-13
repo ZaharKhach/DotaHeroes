@@ -5,10 +5,8 @@ import Video from "./Video";
 import Skills from "./Skills";
 import Header from "./Header";
 import Description from "./Description";
-import {
-  useGetDotaAbilitiesQuery,
-  useGetDotaHeroAbilitiesQuery,
-} from "../../../api/dota";
+
+import { filterTalents, fitlerAbilities } from "../../../fucntions";
 
 const Title = styled.h2`
   display: block;
@@ -36,41 +34,14 @@ const VideoBlock = styled.div`
 `;
 const DescriptionBlock = styled.div``;
 
-const Main = ({ heroAbilities, AllAbilities }) => {
+const Main = ({ heroAbilities, allAbilities }) => {
   const { abilities } = heroAbilities;
   const { talents } = heroAbilities;
   let abilitiesInfo = [];
   let talentsInfo = [];
 
-  abilitiesInfo = abilities.map((ability) => {
-    for (let key in AllAbilities) {
-      if (key === ability) {
-        return {
-          ...AllAbilities[key],
-          heroName: key,
-        };
-      }
-    }
-  });
-
-  talentsInfo = talents.reduce((acc, talent, index) => {
-    for (let key in AllAbilities) {
-      if (talent.name && talent.name === key) {
-        const currentRight = AllAbilities[key].dname;
-        const nextLeft = talents[index + 1]
-          ? AllAbilities[talents[index + 1].name].dname
-          : null;
-        if (index % 2 === 0) {
-          const obj = {
-            right: currentRight,
-            left: nextLeft,
-          };
-          acc.push(obj);
-        }
-      }
-    }
-    return acc;
-  }, []).reverse();
+  abilitiesInfo = fitlerAbilities(abilities, allAbilities)
+  talentsInfo = filterTalents(talents, allAbilities)
 
   return (
     <>
@@ -81,7 +52,7 @@ const Main = ({ heroAbilities, AllAbilities }) => {
           <Skills skills={abilitiesInfo} talents={talentsInfo} />
         </VideoBlock>
         <DescriptionBlock>
-          <Header />
+          <Header skills={abilitiesInfo} />
           <Description />
         </DescriptionBlock>
       </AbilitesBox>
