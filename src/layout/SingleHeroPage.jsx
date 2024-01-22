@@ -11,7 +11,6 @@ import {
 } from "../api/dota";
 
 import background from "../assets/images/single_hero_bg.jpg";
-import { GlobalWrapper } from "../components/globalStyled/GlobalStyled";
 
 import HeroStats from "../components/SingleHero/HeroStats/Main";
 import Hero from "../components/SingleHero/Hero/Hero";
@@ -28,11 +27,15 @@ import {
 import { Error, Loading } from "../components/globalStyled/GlobalStyled";
 import { MoonLoader } from "react-spinners";
 
-const Wrapper = styled(GlobalWrapper)`
+const Wrapper = styled.section`
+  box-sizing: border-box;
+  border: none;
+  background-size: 100% 100%;
   background: center center/cover no-repeat;
   background-image: url(${background});
-  height: 400vh;
+  height: 260vh;
 `;
+
 const Back = styled(Link)`
   margin-left: 10px;
   color: #cecece;
@@ -43,7 +46,16 @@ const Back = styled(Link)`
   line-height: normal;
   text-decoration: none;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(0, 0, 0, 0.8);
+
+  transition-property: filter, transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+
+  &:hover {
+    filter: brightness(1.6);
+  }
 `;
+
 const Container = styled.div`
   max-width: 95vw;
   margin: 0 auto;
@@ -122,7 +134,7 @@ const SingleHeroPage = () => {
       ) : (
         <>
           <Wrapper>
-            <Back to={`/heroes/`}>back to all</Back>
+            <Back to={`/heroes/`}>see all heroes</Back>
             <Container>
               <ComponentsWrapper>
                 <HeroLore heroLore={heroLoreObj[0]} />

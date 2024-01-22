@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 
 import { selectHeroActiveAbility, selectVideoError, videoIsOnError } from "../../Heroes/slices/HeroSlice";

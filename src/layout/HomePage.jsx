@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { MoonLoader } from "react-spinners";
-import styled from "styled-components";
 
 import FirstSection from "../components/Main/FirstSecrion";
 import SecondSection from "../components/Main/SecondSection";
