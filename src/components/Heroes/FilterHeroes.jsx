@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { v4 as uuid } from "uuid";
+
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 import { Container } from "../globalStyled/GlobalStyled";
 
@@ -78,6 +80,10 @@ const Search = styled.input`
 const FilterHeroes = ({ filters }) => {
   const dispatch = useDispatch();
   const activeFilter = useSelector(selectActiveFilter);
+
+  useEffect(() => {
+    dispatch(searchStringChanged(""));
+  }, []);
 
   return (
     <Container>

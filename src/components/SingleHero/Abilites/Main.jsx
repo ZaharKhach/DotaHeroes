@@ -34,21 +34,21 @@ const VideoBlock = styled.div`
 `;
 const DescriptionBlock = styled.div``;
 
-const Main = ({ heroAbilities, allAbilities }) => {
+const Main = ({ heroAbilities, allAbilities, heroName }) => {
   const { abilities } = heroAbilities;
   const { talents } = heroAbilities;
   let abilitiesInfo = [];
   let talentsInfo = [];
 
-  abilitiesInfo = fitlerAbilities(abilities, allAbilities)
-  talentsInfo = filterTalents(talents, allAbilities)
+  abilitiesInfo = fitlerAbilities(abilities, allAbilities);
+  talentsInfo = filterTalents(talents, allAbilities);
 
   return (
     <>
       <Title>abilities</Title>
       <AbilitesBox>
         <VideoBlock>
-          <Video abilities={abilities} />
+          <Video heroName={heroName} abilities={abilities} />
           <Skills skills={abilitiesInfo} talents={talentsInfo} />
         </VideoBlock>
         <DescriptionBlock>

@@ -132,6 +132,7 @@ const SingleHeroPage = () => {
               <Abilites
                 heroAbilities={heroAbilities}
                 allAbilities={allAbilities}
+                heroName={heroObj[0].name}
               />
             </Container>
           </Wrapper>
