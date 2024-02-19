@@ -3,7 +3,7 @@ First page images of sections.
 ![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/1cb50253-f389-4306-8db6-94ca5e8ef5b9)
 ![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/1001e29f-d7f0-465a-aa63-923f8ee2f760)
 
-After you clicked the button SEE ALL CHARACTERS you will se second page were are list of filters and heroes.
+After you clicked the button SEE ALL CHARACTERS you will see the second page. There are list of filters and heroes.
 ![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/f6b96201-53b0-4780-926f-8614a9edaa03)
 ![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/677b36de-ca4a-4f65-8f65-3c30e63113e1)
 
