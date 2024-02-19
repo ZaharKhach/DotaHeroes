@@ -1,70 +1,13 @@
-# Getting Started with Create React App
+First page images of sections.
+![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/4f8a69e9-0cae-4df9-919f-3d04b6cb606a)
+![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/1cb50253-f389-4306-8db6-94ca5e8ef5b9)
+![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/1001e29f-d7f0-465a-aa63-923f8ee2f760)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+After you clicked the button SEE ALL CHARACTERS you will se second page were are list of filters and heroes.
+![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/f6b96201-53b0-4780-926f-8614a9edaa03)
+![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/677b36de-ca4a-4f65-8f65-3c30e63113e1)
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you wanna visit page of some hero you need to click on the icon of this hero. After that you will see page of single hero that you have chosen.
+![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/c1d28bf5-5bca-4652-af8c-1b1b769fed75)
+Theere are also info with video about hero's skills.
+![image](https://github.com/ZaharKhach/DotaHeroesPortal/assets/123116253/c7df7b9c-8d0d-444e-9b6f-161c26f2c86e)
