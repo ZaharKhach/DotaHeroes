@@ -20,6 +20,17 @@ const Title = styled.h1`
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+  }
+  @media (max-width: 426px) {
+    width: 400px;
+    font-size: 2.5rem;
+  }
+  @media (max-width: 376px) {
+    width: 350px;
+    font-size: 2.3rem;
+  }
 `;
 
 const Subtitle = styled.h2`
@@ -32,6 +43,12 @@ const Subtitle = styled.h2`
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media (max-width: 426px) {
+    font-size: 16px;
+  }
 `;
 
 export const Hr = styled.div`
@@ -39,6 +56,12 @@ export const Hr = styled.div`
   width: 420px;
   height: 5px;
   background: #ff6046;
+  @media (max-width: 426px) {
+    width: 250px;
+  }
+  @media (max-width: 376px) {
+    width: 330px;
+  }
 `;
 
 export const ButtonPlaySubtitle = styled(Subtitle)`
@@ -47,6 +70,9 @@ export const ButtonPlaySubtitle = styled(Subtitle)`
   text-align: start;
   transition: 0.5 all;
   text-align: left;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const ButtonPlay = styled(Link)`
@@ -65,18 +91,39 @@ export const ButtonPlay = styled(Link)`
   &:hover {
     transform: translateY(-5px);
   }
-
   text-decoration: none;
+  @media (max-width: 1024px) {
+    width: 22vw;
+  }
+  @media (max-width: 768px) {
+    margin-top: 100px;
+    width: 25vw;
+  }
+  @media (max-width: 426px) {
+    width: 40vw;
+  }
+  @media (max-width: 376px) {
+    width: 45vw;
+  }
 `;
 
 export const Steam = styled.img`
   display: inline;
   width: 3.5vw;
+  @media (max-width: 768px) {
+    width: 6vw;
+  }
+  @media (max-width: 426px) {
+    width: 10vw;
+  }
 `;
 
 export const ButtonPlayLeftSide = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    align-items: flex-end;
+  }
 `;
 
 export const ButtonPlayTitle = styled.div`
@@ -90,6 +137,14 @@ export const ButtonPlayTitle = styled.div`
   line-height: normal;
   text-transform: uppercase;
   text-align: left;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    text-align: right;
+    width: 150px;
+  }
+  @media (max-width: 426px) {
+    width: 150px;
+  }
 `;
 
 const FirstSection = () => {

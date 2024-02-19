@@ -12,7 +12,6 @@ import { useGetDotaStatsQuery } from "../api/dota";
 const HomePage = () => {
   const { data, error, isLoading } = useGetDotaStatsQuery();
 
-
   return (
     <>
       {error ? (
@@ -28,13 +27,13 @@ const HomePage = () => {
       ) : (
         <>
           <FirstSection />
-          <Rectangle />
+          {/* <Rectangle />
           <SecondSection
             players={data.user_players}
             matches={data.matches_last_day}
           />
           <Rectangle />
-          <ThirdSection />
+          <ThirdSection /> */}
         </>
       )}
     </>
