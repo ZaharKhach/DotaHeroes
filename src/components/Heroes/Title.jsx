@@ -14,6 +14,9 @@ const Title = () => {
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
+    @media (max-width: 426px) {
+      font-size: 2.26rem;
+    }
   `;
   const TitleDescr = styled(Titleh1)`
     display: block;
@@ -22,6 +25,13 @@ const Title = () => {
     margin-top: 19px;
     font-size: 1.5rem;
     text-transform: none;
+    @media (max-width: 1024px) {
+      width: 80vw;
+    }
+    @media (max-width: 426px) {
+      width: 90vw;
+      font-size: 1.26rem;
+    }
   `;
 
   return (

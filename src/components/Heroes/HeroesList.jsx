@@ -13,11 +13,18 @@ import { searchSymbol } from "../../fucntions";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Wrapper = styled.section`
-  margin-top: 15px;
+  margin: 15px;
   grid-template-columns: 297px 297px 297px 297px;
   display: grid;
   grid-column-gap: 8px;
   grid-row-gap: 8px;
+  @media (max-width: 1024px) {
+    grid-template-columns: 297px 297px 297px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 297px 297px;
+    justify-content: center;
+  }
 `;
 
 const HeroesList = ({ heroes }) => {

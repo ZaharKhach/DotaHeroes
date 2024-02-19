@@ -43,6 +43,9 @@ const DotaText = styled.div`
   line-height: normal;
   text-transform: uppercase;
   margin-left: 10px;
+  @media (max-width: 426px) {
+    font-size: 32px;
+  }
 `;
 
 const Button = styled(ButtonPlay)`

@@ -32,6 +32,12 @@ const FilterHeroesTitle = styled.h3`
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 17px;
+  }
+  @media (max-width: 426px) {
+    font-size: 15px;
+  }
 `;
 
 const AtributeBlock = styled.div`
@@ -40,6 +46,9 @@ const AtributeBlock = styled.div`
   align-items: center;
   width: 350px;
   height: 44px;
+  @media (max-width: 768px) {
+    width: 320px;
+  }
 `;
 
 const AtributeTitle = styled.h3`
@@ -50,6 +59,12 @@ const AtributeTitle = styled.h3`
   line-height: normal;
   text-transform: uppercase;
   margin-right: 10px;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 426px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const AtributeIcon = styled.img`
@@ -60,6 +75,9 @@ const AtributeIcon = styled.img`
   transition: all 0.5s;
   &.active {
     filter: none;
+  }
+  @media (max-width: 426px) {
+    max-width: 30px;
   }
 `;
 
@@ -74,6 +92,10 @@ const Search = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: 426px) {
+    height: 70%;
   }
 `;
 
