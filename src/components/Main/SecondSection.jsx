@@ -34,10 +34,30 @@ const InfoTitle = styled.h2`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+  @media (max-width: 426px) {
+    font-size: 30px;
+  }
+  @media (max-width: 376px) {
+    font-size: 25px;
+  }
 `;
 const InfoCount = styled(InfoTitle)`
   margin-top: 37px;
   font-size: 64px;
+  @media (max-width: 768px) {
+    font-size: 50px;
+  }
+  @media (max-width: 426px) {
+    font-size: 34px;
+  }
+  @media (max-width: 376px) {
+    margin-top: 27px;
+    font-size: 30px;
+  }
 `;
 
 const SecondSection = ({ players, matches }) => {

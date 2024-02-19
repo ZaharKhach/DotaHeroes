@@ -27,13 +27,13 @@ const HomePage = () => {
       ) : (
         <>
           <FirstSection />
-          {/* <Rectangle />
+          <Rectangle />
           <SecondSection
             players={data.user_players}
             matches={data.matches_last_day}
           />
           <Rectangle />
-          <ThirdSection /> */}
+          {/* <ThirdSection /> */}
         </>
       )}
     </>
