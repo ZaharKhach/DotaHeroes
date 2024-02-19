@@ -23,12 +23,30 @@ const Title = styled.h1`
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
+  @media (max-width: 1024px) {
+    font-size: 54px;
+  }
+  @media (max-width: 768px) {
+    font-size: 46px;
+  }
+  @media (max-width: 426px) {
+    font-size: 40px;
+  }
 `;
 
 const CloseTitle = styled(Title)`
   color: #fff;
   font-size: 80px;
   text-transform: uppercase;
+  @media (max-width: 1024px) {
+    font-size: 70px;
+  }
+  @media (max-width: 768px) {
+    font-size: 60px;
+  }
+  @media (max-width: 426px) {
+    font-size: 55px;
+  }
 `;
 
 const Description = styled.div`
@@ -39,6 +57,19 @@ const Description = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  @media (max-width: 1440px) {
+    margin-top: 60px;
+  }
+  @media (max-width: 1024px) {
+    font-size: 23.9px;
+  }
+  @media (max-width: 768px) {
+    font-size: 18.6px;
+  }
+  @media (max-width: 426px) {
+    margin-top: 50px;
+    font-size: 17px;
+  }
 `;
 
 const Hr = styled.div`
@@ -46,6 +77,12 @@ const Hr = styled.div`
   height: 5px;
   background: #ff6046;
   margin: 125px auto 0px auto;
+  @media (max-width: 1440px) {
+    margin-top: 75px;
+  }
+  @media (max-width: 426px) {
+    width: 300px;
+  }
 `;
 
 const Button = styled(Link)`
@@ -72,7 +109,13 @@ const Button = styled(Link)`
   cursor: pointer;
   &:hover {
     transform: translateY(-5px);
-    /* border: 2px solid #ff6046; */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    width: 300px;
+    height: 83px;
+    margin-top: 130px;
   }
 `;
 
