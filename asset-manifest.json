@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/DotaHeroes/static/css/main.fc6c995b.css",
+    "main.js": "/DotaHeroes/static/js/main.6ba1b049.js",
+    "static/media/heroes_bg.jpg": "/DotaHeroes/static/media/heroes_bg.da15587b499f27f2c234.jpg",
+    "static/media/first_bg.png": "/DotaHeroes/static/media/first_bg.2bef8a31228441ccdeda.png",
+    "static/media/single_hero_bg.jpg": "/DotaHeroes/static/media/single_hero_bg.3955e55cb07e56047a20.jpg",
+    "static/media/second_bg.png": "/DotaHeroes/static/media/second_bg.25899c6f5412684ffc48.png",
+    "static/media/third_bg.png": "/DotaHeroes/static/media/third_bg.f4988ce9259ada7c2055.png",
+    "static/media/Inter-VariableFont_slnt,wght.ttf": "/DotaHeroes/static/media/Inter-VariableFont_slnt,wght.853e01975d2783d9fa29.ttf",
+    "static/media/HypatiaSansPro-Regular.otf": "/DotaHeroes/static/media/HypatiaSansPro-Regular.a02cca946bbc95f0e6e4.otf",
+    "static/media/OPTIwtcGoudy-Medium.otf": "/DotaHeroes/static/media/OPTIwtcGoudy-Medium.2dc4d724421a97071fe5.otf",
+    "static/media/talents.png": "/DotaHeroes/static/media/talents.fcc8ba14a92174538190.png",
+    "index.html": "/DotaHeroes/index.html",
+    "main.fc6c995b.css.map": "/DotaHeroes/static/css/main.fc6c995b.css.map",
+    "main.6ba1b049.js.map": "/DotaHeroes/static/js/main.6ba1b049.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fc6c995b.css",
+    "static/js/main.6ba1b049.js"
+  ]
+}
