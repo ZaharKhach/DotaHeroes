@@ -33,14 +33,13 @@ const Wrapper = styled.section`
   background-size: 100% 100%;
   background: center center/cover no-repeat;
   background-image: url(${background});
-  height: 260vh;
 `;
 
 const Back = styled(Link)`
-  margin-left: 10px;
+  margin-left: 0.65vw;
   color: #cecece;
   text-align: center;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -61,7 +60,6 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 const ComponentsWrapper = styled.div`
-  margin-top: -42px;
   grid-template-columns: 20% 49% 28%;
   display: grid;
   grid-gap: 15px;

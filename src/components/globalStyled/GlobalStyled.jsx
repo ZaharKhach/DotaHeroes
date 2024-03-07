@@ -7,20 +7,8 @@ export const GlobalWrapper = styled.section`
   border: none;
 `;
 export const Container = styled.div`
-  max-width: 1200px;
+  max-width: 90vw;
   margin: 0 auto;
-  @media (max-width: 1024px) {
-    max-width: 920px;
-  }
-  @media (max-width: 768px) {
-    max-width: 720px;
-  }
-  @media (max-width: 426px) {
-    max-width: 410px;
-  }
-  @media (max-width: 376px) {
-    max-width: 350px;
-  }
 `;
 
 export const Error = styled.div`

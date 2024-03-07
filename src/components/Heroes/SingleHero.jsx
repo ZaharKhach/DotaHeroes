@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 import { Link } from "react-router-dom";
 
 const Name = styled.span`
@@ -31,8 +30,7 @@ const Icon = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 297px;
-  height: 160.063px;
+  height: 21.44vh;
   position: relative;
   &:hover {
     ${Name} {
@@ -48,8 +46,11 @@ const Wrapper = styled.div`
       box-shadow: 0px -20px 30px 0px #000 inset, 5px 5px 10px 0px #000;
     }
   }
+  @media (max-width: 540px) {
+    height: 17.44vh;
+  }
 `;
-const SingleHero = ({id, name, img }) => {
+const SingleHero = ({ id, name, img }) => {
   return (
     <Wrapper>
       <Link to={`/heroes/${id}`}>

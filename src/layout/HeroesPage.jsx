@@ -38,7 +38,7 @@ const HeroesPage = () => {
         id: hero.id,
         name: hero.localized_name,
         img: hero.img,
-        attgibute: hero.primary_attr
+        attgibute: hero.primary_attr,
       };
     });
   }

@@ -9,28 +9,45 @@ const Title = () => {
     margin: 0;
     color: #fff;
     text-align: center;
-    font-size: 2.6rem;
+    font-size: 4rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
-    @media (max-width: 426px) {
-      font-size: 2.26rem;
+    @media (max-width: 1024px) {
+      font-size: 3rem;
+    }
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+    @media (max-width: 376px) {
+      font-size: 1.61rem;
     }
   `;
   const TitleDescr = styled(Titleh1)`
     display: block;
     margin: 0 auto;
-    width: 53vw;
-    margin-top: 19px;
-    font-size: 1.5rem;
+    width: 67.14vw;
+    margin-top: 2.54vh;
+    font-size: 1.8em;
     text-transform: none;
+    @media (max-width: 1435px) {
+      font-size: 1.7em;
+    }
+    @media (max-width: 1325px) {
+      font-size: 1.6em;
+    }
     @media (max-width: 1024px) {
-      width: 80vw;
+      font-size: 1.2em;
+    }
+    @media (max-width: 769px) {
+      font-size: 0.9rem;
     }
     @media (max-width: 426px) {
-      width: 90vw;
-      font-size: 1.26rem;
+      width: 90.14vw;
+    }
+    @media (max-width: 375px) {
+      font-size: 0.9rem;
     }
   `;
 

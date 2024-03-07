@@ -18,7 +18,6 @@ import { formatNumberWithDots } from "../../fucntions";
 const Wrapper = styled(GlobalWrapper)`
   display: flex;
   justify-content: space-around;
-  box-sizing: border-box;
   background-image: url(${background});
 `;
 const InfoWrapper = styled.div`
@@ -30,33 +29,37 @@ const InfoTitle = styled.h2`
   margin: 0;
   color: #fff;
   text-align: center;
-  font-size: 50px;
+  font-size: 6.7vh;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-
-  @media (max-width: 768px) {
-    font-size: 40px;
+  @media (max-width: 769px) {
+    font-size: 5.7vh;
+  }
+  @media (max-width: 576px) {
+    font-size: 4.7vh;
   }
   @media (max-width: 426px) {
-    font-size: 30px;
+    font-size: 3.7vh;
   }
-  @media (max-width: 376px) {
-    font-size: 25px;
+  @media (max-width: 326px) {
+    font-size: 3vh;
   }
 `;
 const InfoCount = styled(InfoTitle)`
-  margin-top: 37px;
-  font-size: 64px;
-  @media (max-width: 768px) {
-    font-size: 50px;
+  margin-top: 4.95vh;
+  font-size: 7.7vh;
+  @media (max-width: 769px) {
+    font-size: 5.7vh;
+  }
+  @media (max-width: 576px) {
+    font-size: 4.7vh;
   }
   @media (max-width: 426px) {
-    font-size: 34px;
+    font-size: 3.7vh;
   }
-  @media (max-width: 376px) {
-    margin-top: 27px;
-    font-size: 30px;
+  @media (max-width: 326px) {
+    font-size: 3vh;
   }
 `;
 
@@ -76,7 +79,7 @@ const SecondSection = ({ players, matches }) => {
 
   useEffect(() => {
     const scrollHandler = () => {
-      const scrollThreshold = 0.3; // Измените это значение по вашему усмотрению
+      const scrollThreshold = 0.3;
       const shouldAnimate = scrollYProgress.current > scrollThreshold;
       if (shouldAnimate) {
         controls.start({ opacity: 1, y: 0, transition: { duration: 1 } });
@@ -87,11 +90,9 @@ const SecondSection = ({ players, matches }) => {
       }
     };
 
-    scrollHandler(); // Вызываем сразу для начальной установки
+    scrollHandler();
 
-    // Подписываемся на события скролла
     const unsubscribeScroll = scrollYProgress.on("change", scrollHandler);
-    // Очистка подписки при размонтировании компонента
     return () => {
       unsubscribeScroll();
     };

@@ -32,19 +32,28 @@ const DotaBlock = styled(Link)`
 `;
 const DotaLogo = styled.img`
   width: 6.5vw;
+  @media (max-width: 769px) {
+    width: 10vw;
+  }
 `;
 const DotaText = styled.div`
   display: inline;
   color: #fff;
   text-align: center;
-  font-size: 50px;
+  font-size: 4vw;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
-  margin-left: 10px;
+  margin-left: 1.34vh;
+  @media (max-width: 769px) {
+    font-size: 5vw;
+  }
   @media (max-width: 426px) {
-    font-size: 32px;
+    font-size: 6vw;
+  }
+  @media (max-width: 376px) {
+    font-size: 6.4vw;
   }
 `;
 

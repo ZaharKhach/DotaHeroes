@@ -9,8 +9,8 @@ import { GlobalWrapper, Container } from "../globalStyled/GlobalStyled";
 
 const Wrapper = styled(GlobalWrapper)`
   height: 120vh;
-  padding-top: 100px;
-  padding-bottom: 137px;
+  padding-top: 13.4vh;
+  padding-bottom: 18.36vh;
   background-image: url(${background});
 `;
 
@@ -18,7 +18,7 @@ const Title = styled.h1`
   margin: 0;
   color: #c14836;
   text-align: center;
-  font-size: 64px;
+  font-size: 8.57vh;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -36,7 +36,7 @@ const Title = styled.h1`
 
 const CloseTitle = styled(Title)`
   color: #fff;
-  font-size: 80px;
+  font-size: 10.72vh;
   text-transform: uppercase;
   @media (max-width: 1024px) {
     font-size: 70px;
@@ -50,10 +50,10 @@ const CloseTitle = styled(Title)`
 `;
 
 const Description = styled.div`
-  margin-top: 109px;
+  margin-top: 14.61vh;
   color: #fff;
   text-align: center;
-  font-size: 31px;
+  font-size: 4.15vh;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -73,10 +73,10 @@ const Description = styled.div`
 `;
 
 const Hr = styled.div`
-  width: 420px;
-  height: 5px;
+  width: 27.37vw;
+  height: 0.67vh;
   background: #ff6046;
-  margin: 125px auto 0px auto;
+  margin: 16.75vh auto 0vh auto;
   @media (max-width: 1440px) {
     margin-top: 75px;
   }
@@ -86,21 +86,21 @@ const Hr = styled.div`
 `;
 
 const Button = styled(Link)`
-  margin: 77px auto 0 auto;
+  margin: 10.32vh auto 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 351px;
-  height: 93px;
+  width: 22.88vw;
+  height: 12.46vh;
   background: none;
   border-radius: 10px;
-  border: 2px solid #636363;
+  border: 0.26vh solid #636363;
   text-transform: uppercase;
   text-decoration: none;
 
   color: #fff;
   text-align: center;
-  font-size: 25px;
+  font-size: 3.35vh;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

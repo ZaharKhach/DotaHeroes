@@ -8,15 +8,15 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin-top: 80px;
+  margin-top: 10.72vh;
 `;
 const TitleBox = styled.div`
-  width: 420px;
+  width: 27.37vw;
   display: grid;
   grid-template-columns: 1fr 5fr;
 `;
 const ImgWrapper = styled.div`
-  max-width: 46px;
+  max-width: 2.99vw;
 `;
 const Img = styled.img`
   width: 100%;
@@ -27,7 +27,7 @@ const Title = styled.h1`
   padding: 0;
   color: #fff;
   text-align: center;
-  font-size: 40px;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -35,19 +35,19 @@ const Title = styled.h1`
   z-index: 3;
 `;
 const Hr2 = styled(Hr)`
-  margin-top: 20px;
+  margin-top: 2.68vh;
   width: 100%;
 `;
 const RolesBox = styled.div`
-  margin-top: 20px;
+  margin-top: 2.68vh;
   display: grid;
-  grid-column-gap: 10px;
+  grid-column-gap: 0.65vw;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   z-index: 2;
 `;
 const Role = styled.div`
   color: #cecece;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -55,10 +55,10 @@ const Role = styled.div`
   font-family: "Hypatia", sans-serif;
 `;
 const WinrateBox = styled.div`
-  margin-top: 40px;
+  margin-top: 5.36vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: 20px;
+  grid-row-gap: 2.68vh;
 `;
 const WinrateBlock = styled.div`
   display: flex;
@@ -68,7 +68,7 @@ const WinrateBlock = styled.div`
 
 const WinrateText = styled.div`
   color: #fff;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -77,20 +77,20 @@ const WinrateText = styled.div`
 `;
 const WinrateNumber = styled.div`
   color: #cecece;
-  font-size: 25px;
+  font-size: 1.5625rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  letter-spacing: 3px;
+  letter-spacing: 0.19vw;
   text-transform: uppercase;
   font-family: "Hypatia", sans-serif;
 `;
 
-const GifImg = styled.img`
-  width: 70%;
-  margin-top: 70px;
-  margin-left: 30px; // Регулируйте отступ в соответствии с вашими предпочтениями
-`;
+// const GifImg = styled.img`
+//   width: 70%;
+//   margin-top: 70px;
+//   margin-left: 30px; // Регулируйте отступ в соответствии с вашими предпочтениями
+// `;
 
 const HeroLore = ({ heroLore }) => {
   const { name, roles, agility, turboWinRate, allPickWinRate, proPickWinRate } =

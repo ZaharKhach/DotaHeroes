@@ -13,17 +13,32 @@ import { searchSymbol } from "../../fucntions";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Wrapper = styled.section`
-  margin: 15px;
-  grid-template-columns: 297px 297px 297px 297px;
+  margin: 2.01vh;
+  grid-template-columns: 21.51vw 21.51vw 21.51vw 21.51vw;
   display: grid;
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
+  justify-content: center;
+  grid-column-gap: 1vw;
+  grid-row-gap: 1vh;
   @media (max-width: 1024px) {
-    grid-template-columns: 297px 297px 297px;
+    grid-template-columns: 26.51vw 26.51vw 26.51vw;
   }
-  @media (max-width: 768px) {
-    grid-template-columns: 297px 297px;
-    justify-content: center;
+  @media (max-width: 850px) {
+    grid-template-columns: 30.51vw 30.51vw;
+  }
+  @media (max-width: 701px) {
+    grid-template-columns: 35.51vw 35.51vw;
+  }
+  @media (max-width: 635px) {
+    grid-template-columns: 39.51vw 39.51vw;
+  }
+  @media (max-width: 581px) {
+    grid-template-columns: 41.51vw 41.51vw;
+  }
+  @media (max-width: 530px) {
+    grid-template-columns: 47vw;
+  }
+  @media (max-width: 372px) {
+    grid-template-columns: 55vw;
   }
 `;
 

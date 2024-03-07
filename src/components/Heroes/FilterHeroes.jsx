@@ -13,11 +13,11 @@ import { searchStringChanged } from "./slices/searchSlice";
 import { selectActiveFilter } from "./slices/filterSlice";
 
 const FilterHeroesBlock = styled.div`
-  margin-top: 134px;
+  margin-top: 17.96vh;
   box-sizing: border-box;
   width: 100%;
-  height: 108px;
-  padding: 34px 41px 31px 30px;
+  height: 14.47vh;
+  padding: 4.55vh 2.67vw 4.15vh 1.95vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,16 +27,13 @@ const FilterHeroesBlock = styled.div`
 
 const FilterHeroesTitle = styled.h3`
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 3.21vh;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
-  @media (max-width: 768px) {
-    font-size: 17px;
-  }
-  @media (max-width: 426px) {
-    font-size: 15px;
+  @media (max-width: 769px) {
+    display: none;
   }
 `;
 
@@ -44,40 +41,40 @@ const AtributeBlock = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 350px;
-  height: 44px;
-  @media (max-width: 768px) {
-    width: 320px;
-  }
+  width: 22.81vw;
+  height: 5.89vh;
 `;
 
 const AtributeTitle = styled.h3`
   color: #9c9c9c;
-  font-size: 1.3rem;
+  font-size: 2.78vh;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
-  margin-right: 10px;
-  @media (max-width: 768px) {
-    font-size: 1.1rem;
+  margin-right: 0.65vw;
+  @media (max-width: 530px) {
+    font-size: 2vh;
   }
-  @media (max-width: 426px) {
-    font-size: 0.9rem;
+  @media (max-width: 375px) {
+    font-size: 1.5vh;
   }
 `;
 
 const AtributeIcon = styled.img`
   display: inline;
-  max-width: 50px;
+  width: 4.25vw;
   cursor: pointer;
   filter: brightness(0.5) saturate(0);
   transition: all 0.5s;
   &.active {
     filter: none;
   }
-  @media (max-width: 426px) {
-    max-width: 30px;
+  @media (max-width: 512px) {
+    width: 5vw;
+  }
+  @media (min-width: 476px) {
+    width: 5vw;
   }
 `;
 
@@ -86,16 +83,12 @@ const Search = styled.input`
   width: 24%;
   height: 95%;
   box-sizing: border-box;
-  padding: 0px 10px;
-  font-size: 20px;
+  padding: 0px 0.65vw;
+  font-size: 2.68vh;
   font-weight: 500;
 
   &:focus {
     outline: none;
-  }
-
-  @media (max-width: 426px) {
-    height: 70%;
   }
 `;
 
